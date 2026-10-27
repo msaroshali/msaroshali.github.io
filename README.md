@@ -25,8 +25,8 @@ Explore the production deployment at **[msaroshali.github.io](https://msaroshali
   - *AI Engineering & LLM Evaluation*
   - *Java Backend Systems*
   - *SDET & Automated Testing*
-  - *Embedded Systems & Drone Robotics*
-- **📟 Interactive CLI Terminal HUD (`Ctrl+K`)**: In-browser retro-futuristic terminal supporting commands like `whoami`, `skills`, `projects`, `eval`, `cv [role]`, and `matrix`.
+- **📖 Eye-Soothing E-Ink Display Mode**: One-click toggle transforms the entire interface into a warm, glare-free, matte unbleached paper / e-reader aesthetic (complete with authentic e-ink refresh pulse and graphite particle dust).
+- **📟 Interactive CLI Terminal HUD (`Ctrl+K`)**: In-browser retro-futuristic terminal supporting commands like `whoami`, `skills`, `projects`, `theme [eink|cyber]`, `eval`, `cv [role]`, and `matrix`.
 - **📊 Interactive System Blueprints**: Animated data flow architectures for Vector RAG (WhatsNews), AI Skill Auditing (aicvnow), MAVLink Drone Telemetry, and Page Object Model QA Automation.
 - **🎯 Recruiter Hub**: Fast-track profiles for hiring managers with one-click copyable summaries and master CV preview.
 - **🎨 The Human Dimension**: Dedicated showcases for Fujifilm photography, Repair Café volunteer leadership (Ingenieure Ohne Grenzen), ancient history chronology, and creative writing.

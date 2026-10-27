@@ -171,6 +171,192 @@
             box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.4);
         }
 
+        /* ============================================================== */
+        /* E-INK EYE-SOOTHING PAPER THEME                                 */
+        /* ============================================================== */
+        html.e-ink {
+            color-scheme: light;
+        }
+
+        html.e-ink body {
+            background-color: #f4f1ea !important;
+            color: #1a1a1a !important;
+            text-shadow: none !important;
+        }
+
+        /* Authentic E-Ink Capsule Refresh Pulse */
+        @keyframes einkPulse {
+            0% { filter: invert(0); }
+            35% { filter: invert(0.85) contrast(140%); }
+            65% { filter: invert(0.85) contrast(140%); }
+            100% { filter: invert(0); }
+        }
+
+        .e-ink-pulse {
+            animation: einkPulse 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Cards & Panels: warm unbleached paper */
+        html.e-ink .glass-card {
+            background: #faf8f4 !important;
+            border: 1px solid #d4cdc0 !important;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        html.e-ink .glass-card:hover {
+            border-color: #1a1a1a !important;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.12) !important;
+            transform: translateY(-2px);
+        }
+
+        html.e-ink .glass-nav {
+            background: rgba(244, 241, 234, 0.96) !important;
+            border-bottom: 1px solid #d4cdc0 !important;
+            backdrop-filter: blur(10px) !important;
+        }
+
+        /* Headings and dark ink typography */
+        html.e-ink .text-white {
+            color: #111214 !important;
+        }
+
+        html.e-ink .text-gray-200 {
+            color: #1e2024 !important;
+        }
+
+        html.e-ink .text-gray-300 {
+            color: #2e3035 !important;
+        }
+
+        html.e-ink .text-gray-400 {
+            color: #4e5159 !important;
+        }
+
+        html.e-ink .text-gray-500 {
+            color: #6a6d75 !important;
+        }
+
+        /* Remove colored gradients & neon text in e-ink */
+        html.e-ink .bg-gradient-to-r,
+        html.e-ink .text-transparent {
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            background-clip: unset !important;
+            color: #111214 !important;
+        }
+
+        html.e-ink .shadow-neon-cyan,
+        html.e-ink .shadow-neon-purple,
+        html.e-ink .shadow-neon-emerald,
+        html.e-ink .shadow-glass {
+            box-shadow: none !important;
+        }
+
+        html.e-ink .animate-pulse-glow,
+        html.e-ink .blur-3xl {
+            display: none !important;
+        }
+
+        /* Convert neon text accents to deep crisp ink */
+        html.e-ink .text-neon-cyan,
+        html.e-ink .text-neon-purple,
+        html.e-ink .text-neon-blue,
+        html.e-ink .text-neon-emerald,
+        html.e-ink .text-neon-amber,
+        html.e-ink .text-neon-rose {
+            color: #18191b !important;
+            font-weight: 600;
+        }
+
+        /* Neutralize dark container backgrounds to warm paper */
+        html.e-ink [class*="bg-dark-"] {
+            background-color: #ece7dc !important;
+            color: #18191b !important;
+        }
+
+        html.e-ink .border-white\/10,
+        html.e-ink .border-white\/5 {
+            border-color: #d4cdc0 !important;
+        }
+
+        /* Badge styling in e-ink */
+        html.e-ink [class*="bg-neon-"] {
+            background-color: #e4ddd0 !important;
+            border-color: #c8c0b0 !important;
+            color: #18191b !important;
+        }
+
+        /* Primary Action Buttons: rich matte carbon block */
+        html.e-ink a.bg-gradient-to-r,
+        html.e-ink button.bg-gradient-to-r,
+        html.e-ink .cv-tab.bg-neon-purple {
+            background: #18191b !important;
+            color: #f4f1ea !important;
+            border: 1px solid #18191b !important;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        html.e-ink a.bg-gradient-to-r:hover,
+        html.e-ink button.bg-gradient-to-r:hover {
+            background: #2f3035 !important;
+            color: #ffffff !important;
+        }
+
+        /* Lens tabs active in e-ink */
+        html.e-ink .lens-tab.active {
+            background: #18191b !important;
+            color: #f4f1ea !important;
+            border-color: #18191b !important;
+            box-shadow: none !important;
+        }
+
+        html.e-ink .skill-cat-btn.bg-neon-cyan\/15 {
+            background: #18191b !important;
+            color: #f4f1ea !important;
+            border-color: #18191b !important;
+        }
+
+        /* Sliders */
+        html.e-ink input[type="range"] {
+            background: #d4cdc0 !important;
+            accent-color: #18191b !important;
+        }
+
+        /* Modals & Terminal in E-ink */
+        html.e-ink #terminal-modal .glass-card,
+        html.e-ink #cv-modal .glass-card,
+        html.e-ink #project-modal .glass-card {
+            background: #f7f4ec !important;
+            border: 2px solid #18191b !important;
+            box-shadow: 6px 6px 0px rgba(24, 25, 27, 0.25) !important;
+        }
+
+        html.e-ink #terminal-output,
+        html.e-ink #full-cv-text,
+        html.e-ink #modal-project-body {
+            background: #fdfbf7 !important;
+            color: #18191b !important;
+        }
+
+        html.e-ink #terminal-input {
+            color: #18191b !important;
+        }
+
+        html.e-ink #terminal-fab {
+            background: #18191b !important;
+            color: #f4f1ea !important;
+            border-color: #18191b !important;
+        }
+
+        html.e-ink #toast {
+            background: #18191b !important;
+            color: #f4f1ea !important;
+            border: 1px solid #18191b !important;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important;
+        }
+
         /* Print styles for Recruiter Print / PDF Export */
         @media print {
             body {
@@ -235,8 +421,14 @@
                 <a href="#recruiter-hub" class="px-3 py-2 rounded-md text-neon-purple hover:text-neon-purple/80 hover:bg-neon-purple/10 border border-neon-purple/30 transition-all font-semibold">// RECRUITER HUB</a>
             </div>
 
-            <!-- Right Controls: Terminal HUD trigger & Contact -->
+            <!-- Right Controls: Theme Toggle, Terminal HUD trigger & Contact -->
             <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Theme Toggle Button (E-Ink / Cyber) -->
+                <button id="theme-toggle-btn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-dark-800 border border-white/10 hover:border-amber-400/50 text-xs font-mono text-gray-300 hover:text-white transition-all group" title="Toggle Eye-Soothing E-Ink Display Mode">
+                    <span id="theme-icon">📖</span>
+                    <span id="theme-label" class="hidden sm:inline">E-Ink</span>
+                </button>
+
                 <!-- Terminal Trigger Button -->
                 <button id="open-terminal-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-dark-800 border border-white/10 hover:border-neon-cyan/50 text-xs font-mono text-neon-cyan hover:shadow-neon-cyan transition-all group" title="Open Interactive CLI (Ctrl+K)">
                     <span class="text-neon-cyan">&gt;_</span>
@@ -260,6 +452,10 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 glass-nav border-t border-white/5 text-sm font-mono">
+            <button id="mobile-theme-btn" class="w-full text-left py-2 text-amber-300 hover:text-amber-200 flex items-center space-x-2">
+                <span id="mobile-theme-icon">📖</span>
+                <span id="mobile-theme-label">TOGGLE E-INK THEME</span>
+            </button>
             <a href="#projects" class="block py-2 text-gray-300 hover:text-neon-cyan">// PROJECTS</a>
             <a href="#architectures" class="block py-2 text-gray-300 hover:text-neon-cyan">// ARCHITECTURE</a>
             <a href="#skills" class="block py-2 text-gray-300 hover:text-neon-cyan">// TECH MATRIX</a>
@@ -1742,9 +1938,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-2">
                 <span class="text-neon-cyan">&gt;_</span>
-                <span>Muhammad Sarosh Ali • Built with Antigravity 2.0 • Hosted on GitHub Pages</span>
+                <span>Muhammad Sarosh Ali's Portfolio • Hosted on GitHub Pages</span>
             </div>
             <div class="flex items-center space-x-4">
+                <button id="footer-theme-btn" class="hover:text-amber-400 transition-colors">Toggle E-Ink Mode</button>
+                <span>•</span>
                 <a href="#hero" class="hover:text-neon-cyan transition-colors">Back to top &uarr;</a>
                 <span>•</span>
                 <button id="footer-terminal-btn" class="hover:text-neon-cyan transition-colors">Launch CLI</button>
@@ -1921,6 +2119,7 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
 
             function render() {
                 ctx.clearRect(0, 0, width, height);
+                const isEink = document.documentElement.classList.contains('e-ink');
 
                 for (let i = 0; i < particles.length; i++) {
                     let p = particles[i];
@@ -1934,7 +2133,7 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
 
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(6, 182, 212, ${p.alpha})`;
+                    ctx.fillStyle = isEink ? `rgba(45, 48, 55, ${p.alpha * 0.4})` : `rgba(6, 182, 212, ${p.alpha})`;
                     ctx.fill();
 
                     // Connect nearby particles
@@ -1948,7 +2147,7 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                             ctx.beginPath();
                             ctx.moveTo(p.x, p.y);
                             ctx.lineTo(p2.x, p2.y);
-                            ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - dist / 110)})`;
+                            ctx.strokeStyle = isEink ? `rgba(45, 48, 55, ${0.1 * (1 - dist / 110)})` : `rgba(139, 92, 246, ${0.15 * (1 - dist / 110)})`;
                             ctx.lineWidth = 0.6;
                             ctx.stroke();
                         }
@@ -1963,7 +2162,7 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                             ctx.beginPath();
                             ctx.moveTo(p.x, p.y);
                             ctx.lineTo(mouse.x, mouse.y);
-                            ctx.strokeStyle = `rgba(6, 182, 212, ${0.25 * (1 - mdist / 130)})`;
+                            ctx.strokeStyle = isEink ? `rgba(45, 48, 55, ${0.15 * (1 - mdist / 130)})` : `rgba(6, 182, 212, ${0.25 * (1 - mdist / 130)})`;
                             ctx.lineWidth = 0.8;
                             ctx.stroke();
                         }
@@ -2394,6 +2593,7 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                     <div><span class="text-neon-emerald font-bold">projects</span> : List flagship systems</div>
                     <div><span class="text-neon-emerald font-bold">skills</span> : Technical capabilities</div>
                     <div><span class="text-neon-emerald font-bold">lens [role]</span> : Switch lens (ai, java, qa, hw)</div>
+                    <div><span class="text-neon-emerald font-bold">theme [eink|cyber]</span> : Eye-soothing E-Ink / Cyber</div>
                     <div><span class="text-neon-emerald font-bold">eval</span> : Run LLM hallucination benchmark</div>
                     <div><span class="text-neon-emerald font-bold">cv [role]</span> : View tailored CV profile</div>
                     <div><span class="text-neon-emerald font-bold">hobbies</span> : Personal passions &amp; Repair Café</div>
@@ -2469,6 +2669,11 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                 }, 100);
                 return `<div class="text-neon-emerald font-bold">Entering Digital Matrix...</div>`;
             },
+            theme: () => {
+                toggleTheme();
+                const isEink = document.documentElement.classList.contains('e-ink');
+                return `<div class="text-neon-cyan font-bold">Display theme toggled to: ${isEink ? 'E-INK PAPER MODE' : 'CYBER TERMINAL MODE'}</div>`;
+            },
             clear: () => {
                 terminalOutput.innerHTML = '';
                 return '';
@@ -2493,6 +2698,18 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                         printTerminal(`<div class="text-neon-cyan font-bold">Perspective Lens switched to: ${target.toUpperCase()}</div>`);
                     } else {
                         printTerminal(`<div class="text-rose-400">Usage: lens [all | ai | java | qa | hardware]</div>`);
+                    }
+                } else if (baseCmd === 'theme') {
+                    if (arg === 'eink' || arg === 'paper') {
+                        applyTheme('e-ink', true);
+                        printTerminal(`<div class="text-neon-emerald font-bold">Display theme set to: E-INK PAPER</div>`);
+                    } else if (arg === 'cyber' || arg === 'dark') {
+                        applyTheme('cyber', true);
+                        printTerminal(`<div class="text-neon-cyan font-bold">Display theme set to: CYBER TERMINAL</div>`);
+                    } else {
+                        toggleTheme();
+                        const isEink = document.documentElement.classList.contains('e-ink');
+                        printTerminal(`<div class="text-neon-cyan font-bold">Display theme toggled to: ${isEink ? 'E-INK PAPER' : 'CYBER TERMINAL'}</div>`);
                     }
                 } else if (baseCmd === 'cv') {
                     const profKey = arg && recruiterProfiles[arg] ? arg : 'qa';
@@ -2558,6 +2775,63 @@ Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of so
                 });
             });
         }
+
+        // --- 12. Theme Switcher (E-Ink Paper Mode vs Cyber Dark Mode) ---
+        function applyTheme(theme, triggerFlash = true) {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeLabel = document.getElementById('theme-label');
+            const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+            const mobileThemeLabel = document.getElementById('mobile-theme-label');
+            const footerThemeBtn = document.getElementById('footer-theme-btn');
+
+            if (triggerFlash) {
+                document.body.classList.add('e-ink-pulse');
+                setTimeout(() => document.body.classList.remove('e-ink-pulse'), 280);
+            }
+
+            if (theme === 'e-ink') {
+                html.classList.remove('dark');
+                html.classList.add('e-ink');
+                if (themeIcon) themeIcon.textContent = '⚡';
+                if (themeLabel) themeLabel.textContent = 'Cyber';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '⚡';
+                if (mobileThemeLabel) mobileThemeLabel.textContent = 'SWITCH TO CYBER THEME';
+                if (footerThemeBtn) footerThemeBtn.textContent = 'Switch to Cyber Mode';
+                localStorage.setItem('msa-theme', 'e-ink');
+            } else {
+                html.classList.remove('e-ink');
+                html.classList.add('dark');
+                if (themeIcon) themeIcon.textContent = '📖';
+                if (themeLabel) themeLabel.textContent = 'E-Ink';
+                if (mobileThemeIcon) mobileThemeIcon.textContent = '📖';
+                if (mobileThemeLabel) mobileThemeLabel.textContent = 'SWITCH TO E-INK THEME';
+                if (footerThemeBtn) footerThemeBtn.textContent = 'Toggle E-Ink Mode';
+                localStorage.setItem('msa-theme', 'cyber');
+            }
+        }
+
+        function toggleTheme() {
+            const isEink = document.documentElement.classList.contains('e-ink');
+            const nextTheme = isEink ? 'cyber' : 'e-ink';
+            applyTheme(nextTheme, true);
+            showToast(nextTheme === 'e-ink' ? '📖 E-Ink Mode: Eye-soothing paper display active' : '⚡ Cyber Mode: Terminal display active');
+        }
+
+        // Initialize Theme from localStorage
+        const savedTheme = localStorage.getItem('msa-theme');
+        if (savedTheme === 'e-ink') {
+            applyTheme('e-ink', false);
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+
+        const mobileThemeBtn = document.getElementById('mobile-theme-btn');
+        if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+        const footerThemeBtn = document.getElementById('footer-theme-btn');
+        if (footerThemeBtn) footerThemeBtn.addEventListener('click', toggleTheme);
     </script>
 </body>
 </html>
