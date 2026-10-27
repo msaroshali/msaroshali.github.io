@@ -1,308 +1,2563 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Sarosh Ali | Interactive Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Muhammad Sarosh Ali | Polymath Software & AI Engineer</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Portfolio of Muhammad Sarosh Ali: AI & LLM Evaluation Researcher, Full-Stack Java Systems Engineer, SDET Specialist, and Embedded Systems Tinkerer. M.Sc. candidate at TU Ilmenau.">
+    <meta name="keywords" content="Muhammad Sarosh Ali, AI Engineer, LLM Evaluation, Full-Stack Java, SDET, Test Automation, Selenium, PyTorch, Javalin, Embedded Systems, TU Ilmenau, Jena, Germany">
+    <meta name="author" content="Muhammad Sarosh Ali">
+    <meta name="theme-color" content="#070a13">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://msaroshali.github.io/">
+    <meta property="og:title" content="Muhammad Sarosh Ali | Polymath Software & AI Engineer">
+    <meta property="og:description" content="AI & LLM Evaluation Researcher, Full-Stack Java Systems Engineer, and SDET. Explore interactive projects, live simulators, and system architectures.">
+    <meta property="og:image" content="https://msaroshali.github.io/favicon.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Muhammad Sarosh Ali | Polymath Software & AI Engineer">
+    <meta property="twitter:description" content="AI & LLM Evaluation Researcher, Full-Stack Java Systems Engineer, and SDET. Explore interactive projects, live simulators, and system architectures.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A tab-based Single Page Application (SPA) is chosen to present the two distinct resumes (Software Engineer and QA Engineer) within a single, cohesive view. This structure allows for direct comparison and easy navigation without page reloads. The layout is a two-column design: a main content area for experience and education, and a sidebar for at-a-glance information like the summary and an interactive skills chart. This prioritizes the narrative of the work history while keeping key skills immediately accessible and engaging. The user flow is simple: land on the default (Software Engineer) view, and toggle to the QA view using the tabs. The chart dynamically updates, enhancing the user experience. -->
-    <!-- Visualization & Content Choices: Report Info: Technical Skills -> Goal: Inform/Compare -> Viz/Presentation Method: Horizontal Bar Chart -> Interaction: Chart data updates when switching between resume tabs -> Justification: A chart provides a more engaging and quick-to-digest overview of technical abilities than a list. The dynamic update reinforces the distinction between the two roles. -> Library/Method: Chart.js (Canvas). Report Info: Two distinct resumes -> Goal: Organize/Compare -> Viz/Presentation Method: Tabbed Interface -> Interaction: Click to switch visible content -> Justification: The most user-friendly method to contain and switch between two complete documents. -> Library/Method: Vanilla JS. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            950: '#04060a',
+                            900: '#070a13',
+                            850: '#0b101d',
+                            800: '#0f172a',
+                            750: '#151f38',
+                            700: '#1e293b',
+                        },
+                        neon: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.4)',
+                        'neon-purple': '0 0 25px -5px rgba(139, 92, 246, 0.4)',
+                        'neon-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.4)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(1000%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
     <style>
+        /* Base styles */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #070a13;
+            color: #e2e8f0;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            selection-background-color: #06b6d4;
+            selection-color: #04060a;
         }
-        .tab-active {
-            border-color: #2563eb;
-            color: #2563eb;
-            font-weight: 600;
+        
+        ::selection {
+            background-color: rgba(6, 182, 212, 0.3);
+            color: #67e8f9;
         }
-        .chart-container {
-            position: relative;
-            height: 500px;
-            width: 100%;
+        
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.35);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .glass-nav {
+            background: rgba(7, 10, 19, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        /* Terminal Matrix / HUD text */
+        .terminal-glow {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+        }
+        
+        /* Canvas background behind content */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Lens Active Indicators */
+        .lens-tab.active {
+            background: rgba(6, 182, 212, 0.15);
+            border-color: #06b6d4;
+            color: #67e8f9;
+            box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Print styles for Recruiter Print / PDF Export */
+        @media print {
+            body {
+                background: white !important;
+                color: #0f172a !important;
+            }
+            #particle-canvas, nav, #lens-bar, #terminal-modal, #terminal-fab, footer, .no-print {
+                display: none !important;
+            }
+            .glass-card {
+                background: white !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #0f172a !important;
+                box-shadow: none !important;
+            }
+            .text-gray-400, .text-gray-300 {
+                color: #475569 !important;
+            }
+            .text-white {
+                color: #0f172a !important;
+            }
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="relative min-h-screen">
 
-    <div class="container mx-auto p-4 md:p-8 lg:p-12">
-        
-        <!-- Header Section -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Muhammad Sarosh Ali</h1>
-            <p class="text-lg text-gray-600 mt-2">Interactive Professional Resume</p>
-            <div class="mt-4 text-sm text-gray-500 flex justify-center items-center flex-wrap gap-x-4 gap-y-2">
-                <span>muhammadsaroshali@gmail.com</span>
-                <span class="hidden md:inline">|</span>
-                <span>+4915213431198</span>
-                <span class="hidden md:inline">|</span>
-                <a href="https://linkedin.com/in/muhammad-sarosh-ali-8b49191b9/" target="_blank" class="text-blue-600 hover:underline">LinkedIn Profile</a>
-            </div>
-        </header>
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
 
-        <!-- Tab Navigation -->
-        <nav class="mb-8">
-            <div class="border-b border-gray-200">
-                <ul class="flex -mb-px" id="resume-tabs">
-                    <li class="mr-1">
-                        <button class="tab-btn inline-block py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="swe">Software Engineer</button>
-                    </li>
-                    <li class="mr-1">
-                        <button class="tab-btn inline-block py-4 px-6 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="qa">Software Quality Assurance Engineer</button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <!-- Ambient Glowing Orbs -->
+    <div class="fixed top-10 left-1/4 w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow -z-10"></div>
+    <div class="fixed top-1/2 right-10 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow -z-10" style="animation-delay: 1.5s;"></div>
+    <div class="fixed bottom-10 left-1/3 w-96 h-96 bg-neon-emerald/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow -z-10" style="animation-delay: 2.5s;"></div>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Software Engineer Content -->
-            <div id="swe-content" class="resume-content">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2">
-                        <section id="swe-experience">
-                            <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Professional Experience</h2>
-                            <div class="space-y-6">
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <h3 class="text-xl font-semibold">Software Engineer / Junior QA Engineer</h3>
-                                    <p class="text-md text-gray-600">Xceptance Software Technologies GmbH | Jena, Germany</p>
-                                    <p class="text-sm text-gray-500 mb-3">April 2024 – September 2024</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                                        <li>Led full-stack web application development and testing for the "Posters Demo Store," successfully revamping its frontend and backend to align with contemporary design principles.</li>
-                                        <li>Engineered a comprehensive test automation suite, significantly improving product reliability.</li>
-                                        <li>Collaborated cross-functionally with Test Automation teams to integrate robust testing practices into the development lifecycle.</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <h3 class="text-xl font-semibold">Software Engineering Working Student (Part-Time)</h3>
-                                    <p class="text-md text-gray-600">Xceptance Software Technologies GmbH | Jena, Germany</p>
-                                    <p class="text-sm text-gray-500 mb-3">December 2021 – April 2024</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                                        <li>Spearheaded a team project to modernize and enhance the "Posters Demo Store" through successive releases.</li>
-                                        <li>Successfully led a project utilizing Java to establish compatibility between Postman and the company's proprietary load testing software, XLT.</li>
-                                        <li>Enhanced, debugged, and tested the web application, revised the front-end design, and implemented new functionalities.</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <h3 class="text-xl font-semibold">Full Stack Web Development Intern</h3>
-                                    <p class="text-md text-gray-600">Final solutions | Islamabad, Pakistan</p>
-                                    <p class="text-sm text-gray-500 mb-3">March 2021 – July 2021</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                                        <li>Worked extensively with CodeIgniter (PHP) MVC architecture, contributing to both front-end and back-end development.</li>
-                                        <li>Played a key role in resolving critical issues for real-world customer web applications.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <section id="swe-education" class="mt-8">
-                            <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Education</h2>
-                            <div class="bg-white p-6 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold">Master of Science in Research in Computer & Systems Engineering</h3>
-                                <p class="text-md text-gray-600">Technische Universität Ilmenau</p>
-                                <p class="text-sm text-gray-500">October 2021 – Present</p>
-                            </div>
-                        </section>
+    <!-- Top Navigation Bar -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Brand / Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-neon-cyan via-neon-blue to-neon-purple p-[1px] shadow-neon-cyan">
+                    <div class="w-full h-full bg-dark-900 rounded-lg flex items-center justify-center font-mono font-bold text-xs text-neon-cyan group-hover:text-white transition-colors">
+                        &gt;_
                     </div>
-                    <div class="lg:col-span-1">
-                        <aside class="space-y-8">
-                            <section id="swe-summary">
-                                <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Summary</h2>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                   <p class="text-gray-700">Software Engineer with 2+ years of experience in full-stack web application development, leveraging Java, PHP, and modern frameworks. Proven ability to lead projects, implement new functionalities, and enhance system compatibility, with a strong foundation in Agile methodologies and version control. Eager to contribute to innovative software solutions.</p>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-heading font-bold text-base tracking-wider text-white group-hover:text-neon-cyan transition-colors">SAROSH ALI</span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span>
+                    </div>
+                    <span class="font-mono text-[10px] text-gray-400 tracking-tight">msaroshali@dev:~#</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-mono text-gray-300">
+                <a href="#projects" class="px-3 py-2 rounded-md hover:text-neon-cyan hover:bg-white/5 transition-colors">// PROJECTS</a>
+                <a href="#architectures" class="px-3 py-2 rounded-md hover:text-neon-cyan hover:bg-white/5 transition-colors">// ARCHITECTURE</a>
+                <a href="#skills" class="px-3 py-2 rounded-md hover:text-neon-cyan hover:bg-white/5 transition-colors">// TECH MATRIX</a>
+                <a href="#experience" class="px-3 py-2 rounded-md hover:text-neon-cyan hover:bg-white/5 transition-colors">// TIMELINE</a>
+                <a href="#passions" class="px-3 py-2 rounded-md hover:text-neon-cyan hover:bg-white/5 transition-colors">// BEYOND CODE</a>
+                <a href="#recruiter-hub" class="px-3 py-2 rounded-md text-neon-purple hover:text-neon-purple/80 hover:bg-neon-purple/10 border border-neon-purple/30 transition-all font-semibold">// RECRUITER HUB</a>
+            </div>
+
+            <!-- Right Controls: Terminal HUD trigger & Contact -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Terminal Trigger Button -->
+                <button id="open-terminal-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-dark-800 border border-white/10 hover:border-neon-cyan/50 text-xs font-mono text-neon-cyan hover:shadow-neon-cyan transition-all group" title="Open Interactive CLI (Ctrl+K)">
+                    <span class="text-neon-cyan">&gt;_</span>
+                    <span class="hidden sm:inline">CLI</span>
+                    <span class="px-1.5 py-0.5 rounded bg-white/5 text-[10px] text-gray-400 border border-white/10 group-hover:border-neon-cyan/30">^K</span>
+                </button>
+
+                <!-- Direct Contact CTA -->
+                <a href="#contact" class="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-950 font-bold text-xs hover:opacity-95 shadow-neon-cyan transition-all">
+                    Get In Touch
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 glass-nav border-t border-white/5 text-sm font-mono">
+            <a href="#projects" class="block py-2 text-gray-300 hover:text-neon-cyan">// PROJECTS</a>
+            <a href="#architectures" class="block py-2 text-gray-300 hover:text-neon-cyan">// ARCHITECTURE</a>
+            <a href="#skills" class="block py-2 text-gray-300 hover:text-neon-cyan">// TECH MATRIX</a>
+            <a href="#experience" class="block py-2 text-gray-300 hover:text-neon-cyan">// TIMELINE</a>
+            <a href="#passions" class="block py-2 text-gray-300 hover:text-neon-cyan">// BEYOND CODE</a>
+            <a href="#recruiter-hub" class="block py-2 text-neon-purple">// RECRUITER HUB</a>
+            <a href="#contact" class="block py-2 text-neon-cyan">// CONTACT SAROSH</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="relative z-10 pt-20">
+
+        <!-- ============================================================== -->
+        <!-- 1. HERO SECTION                                                -->
+        <!-- ============================================================== -->
+        <section id="hero" class="min-h-[92vh] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            
+            <!-- Live Status & Location Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-850/80 border border-neon-cyan/30 text-xs font-mono text-gray-300 w-max mb-6 backdrop-blur-md shadow-neon-cyan">
+                <span class="w-2 h-2 rounded-full bg-neon-emerald animate-ping"></span>
+                <span class="text-neon-cyan font-semibold">STATUS:</span>
+                <span>Open for Tech &amp; AI Roles</span>
+                <span class="text-gray-500">|</span>
+                <span class="text-gray-400">📍 Ilmenau / Jena, Germany</span>
+            </div>
+
+            <!-- Big Main Headline -->
+            <div class="space-y-4 max-w-5xl">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white leading-tight">
+                    Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple">Resilient Systems</span> &amp; <br class="hidden sm:inline">
+                    Empirical <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple via-neon-rose to-neon-amber">AI Intelligence</span>
+                </h1>
+
+                <!-- Typewriter / Cycling Subtitle -->
+                <div class="flex items-center space-x-2 text-lg sm:text-2xl font-mono text-neon-cyan min-h-[36px]">
+                    <span>&gt;</span>
+                    <span id="typewriter-text" class="text-white border-b-2 border-neon-cyan pb-0.5">AI &amp; LLM Evaluation Researcher</span>
+                    <span class="w-2.5 h-6 bg-neon-cyan animate-pulse"></span>
+                </div>
+
+                <!-- Dynamic Narrative Pitch (Adapted by Perspective Lens) -->
+                <p id="hero-narrative" class="text-base sm:text-xl text-gray-300 max-w-3xl leading-relaxed pt-2">
+                    M.Sc. researcher in Computer &amp; Systems Engineering at <strong class="text-white">TU Ilmenau</strong> with around 3 years of commercial software engineering experience. Specializing in <span class="text-neon-cyan font-medium">LLM hallucination quantification</span>, <span class="text-neon-purple font-medium">vector RAG architectures</span>, <span class="text-neon-emerald font-medium">Java multi-tier enterprise backends</span>, and <span class="text-neon-amber font-medium">mission-critical QA automation</span>.
+                </p>
+            </div>
+
+            <!-- Quick Action Row -->
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-8">
+                <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple text-dark-950 font-heading font-bold text-sm sm:text-base hover:opacity-95 shadow-neon-cyan flex items-center space-x-2 transition-all">
+                    <span>Explore Flagship Systems</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+                
+                <button id="hero-terminal-btn" class="px-5 py-3 rounded-xl bg-dark-850 hover:bg-dark-800 border border-white/10 hover:border-neon-cyan text-gray-200 hover:text-white font-mono text-sm flex items-center space-x-2 transition-all">
+                    <span class="text-neon-cyan">&gt;_</span>
+                    <span>Launch CLI [Ctrl+K]</span>
+                </button>
+
+                <a href="#recruiter-hub" class="px-5 py-3 rounded-xl bg-neon-purple/10 hover:bg-neon-purple/20 border border-neon-purple/30 text-purple-200 font-mono text-sm flex items-center space-x-2 transition-all">
+                    <span>⚡ Recruiter Lens</span>
+                </a>
+
+                <div class="flex items-center space-x-3 pl-2 sm:pl-4 border-l border-white/10">
+                    <a href="https://github.com/msaroshali" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800/80 hover:bg-dark-750 text-gray-400 hover:text-neon-cyan border border-white/5 transition-colors" title="GitHub Profile">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/muhammad-sarosh-ali-8b49191b9/" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800/80 hover:bg-dark-750 text-gray-400 hover:text-neon-cyan border border-white/5 transition-colors" title="LinkedIn Profile">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:muhammadsaroshali@gmail.com" class="p-2.5 rounded-lg bg-dark-800/80 hover:bg-dark-750 text-gray-400 hover:text-neon-cyan border border-white/5 transition-colors" title="Email Muhammad Sarosh Ali">
+                        <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Key Engineering Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14">
+                <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-neon-cyan">3+ Yrs</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 mt-1">Software &amp; AI Research</div>
+                    <div class="text-[11px] font-mono text-gray-500 mt-0.5">Xceptance, Final Solutions, TU Ilmenau</div>
+                    <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-neon-cyan/5 rounded-full group-hover:bg-neon-cyan/15 transition-all"></div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-neon-purple">190+</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 mt-1">Jira Issues Coordinated</div>
+                    <div class="text-[11px] font-mono text-gray-500 mt-0.5">70%+ direct resolution (Posters Store)</div>
+                    <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-neon-purple/5 rounded-full group-hover:bg-neon-purple/15 transition-all"></div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-neon-emerald">+200%</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 mt-1">Application Callback Lift</div>
+                    <div class="text-[11px] font-mono text-gray-500 mt-0.5">aicvnow AI tailoring &amp; skill audit</div>
+                    <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-neon-emerald/5 rounded-full group-hover:bg-neon-emerald/15 transition-all"></div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl relative overflow-hidden group">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-neon-amber">16 Flows</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 mt-1">Automated E2E Scenarios</div>
+                    <div class="text-[11px] font-mono text-gray-500 mt-0.5">TU Ilmenau Portal (Selenide/Allure)</div>
+                    <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-neon-amber/5 rounded-full group-hover:bg-neon-amber/15 transition-all"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 2. PERSPECTIVE LENS CONTROLLER (Interactive Role Filter)      -->
+        <!-- ============================================================== -->
+        <section id="lens-bar" class="sticky top-16 z-40 py-3 glass-nav border-y border-white/10 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    
+                    <div class="flex items-center space-x-2 text-xs font-mono text-gray-400">
+                        <span class="inline-block w-2 h-2 rounded-full bg-neon-cyan"></span>
+                        <span class="font-bold text-gray-200">PERSPECTIVE LENS:</span>
+                        <span class="hidden lg:inline text-gray-500">Filter projects &amp; skills by role focus</span>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex items-center overflow-x-auto max-w-full pb-1 sm:pb-0 gap-1.5 font-mono text-xs">
+                        <button class="lens-tab active px-3 py-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-white transition-all whitespace-nowrap" data-lens="all">
+                            🌐 All-Rounder
+                        </button>
+                        <button class="lens-tab px-3 py-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-white transition-all whitespace-nowrap" data-lens="ai">
+                            🧠 AI &amp; LLMs
+                        </button>
+                        <button class="lens-tab px-3 py-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-white transition-all whitespace-nowrap" data-lens="java">
+                            ☕ Java &amp; Web
+                        </button>
+                        <button class="lens-tab px-3 py-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-white transition-all whitespace-nowrap" data-lens="qa">
+                            🛡️ QA &amp; SDET
+                        </button>
+                        <button class="lens-tab px-3 py-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-white transition-all whitespace-nowrap" data-lens="hardware">
+                            ⚡ Embedded &amp; Drone
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 3. FLAGSHIP PROJECTS SHOWCASE                                  -->
+        <!-- ============================================================== -->
+        <section id="projects" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="font-mono text-xs font-bold text-neon-cyan tracking-widest uppercase">// PROVEN CAPABILITIES</div>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Featured Systems &amp; Research</h2>
+                </div>
+                <p class="text-sm font-mono text-gray-400 mt-2 md:mt-0 max-w-md">
+                    Production web platforms, empirical AI research, RAG search engines, and autonomous hardware.
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                
+                <!-- Project 1: aicvnow (AI CV Optimizer) -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="ai web">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 text-[11px] font-mono font-semibold">
+                                AI / Full-Stack
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">2026 – Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-cyan transition-colors">
+                            aicvnow (cvezee)
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Job Description-Based AI CV Tailoring &amp; Intelligence</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Engineered an AI CV tailoring platform using Node.js, Express, and Google Gemini. Features a 3-tier skill audit (matched, omitted, missing), anti-buzzword humanizer prompts, ATS compatibility scoring, live click-to-edit markdown sync, and Puppeteer PDF rendering.
+                        </p>
+
+                        <!-- Mini In-Card Interactive Simulator -->
+                        <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5 mb-4">
+                            <div class="flex items-center justify-between text-[11px] font-mono text-gray-400 mb-2">
+                                <span>Interactive Skill Gap Audit:</span>
+                                <span class="text-neon-emerald font-bold">94% ATS Match</span>
+                            </div>
+                            <div class="w-full bg-dark-800 rounded-full h-1.5 mb-2.5 overflow-hidden">
+                                <div class="bg-gradient-to-r from-neon-cyan to-neon-emerald h-1.5 rounded-full w-[94%]"></div>
+                            </div>
+                            <div class="flex flex-wrap gap-1 text-[10px] font-mono">
+                                <span class="px-1.5 py-0.5 rounded bg-neon-emerald/10 text-emerald-300 border border-emerald-500/20">✓ Matched: 18</span>
+                                <span class="px-1.5 py-0.5 rounded bg-neon-amber/10 text-amber-300 border border-amber-500/20">! Omitted: 6</span>
+                                <span class="px-1.5 py-0.5 rounded bg-neon-rose/10 text-rose-300 border border-rose-500/20">✗ Missing: 2</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Node.js</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Gemini API</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Supabase</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Puppeteer</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-cyan">+200% Callbacks</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-aicvnow">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI Hallucinations Quantification System -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="ai">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-purple/10 text-neon-purple border border-neon-purple/20 text-[11px] font-mono font-semibold">
+                                Academic Research
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">TU Ilmenau • 2025 – Pres.</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-purple transition-colors">
+                            AI Hallucination Quantification
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Vector Divergence Across Open-Weight LLMs</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Researching empirical hallucination quantification across open-weight LLMs (Qwen, Gemma, Llama). Extracts vector embeddings across controlled prompts and applies prospect certainty-based cosine similarity with structural weighting to establish contextual certainty metrics.
+                        </p>
+
+                        <!-- Mini In-Card Interactive Simulator -->
+                        <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5 mb-4">
+                            <div class="flex items-center justify-between text-[11px] font-mono text-gray-400 mb-1.5">
+                                <span>Variance: <span id="variance-val">0.18</span></span>
+                                <span class="text-neon-purple font-mono">Certainty: <strong id="certainty-val">0.92</strong></span>
+                            </div>
+                            <input type="range" min="0" max="100" value="18" class="w-full h-1 bg-dark-750 rounded-lg appearance-none cursor-pointer accent-neon-purple" id="variance-slider">
+                            <div class="flex justify-between text-[9px] font-mono text-gray-500 mt-1">
+                                <span>Cohesive (Low Divergence)</span>
+                                <span>High Hallucination Risk</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Python</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">PyTorch</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Embeddings</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Cosine Sim</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-purple">Qwen / Gemma / Llama</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-hallucination">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: WhatsNews (AI RAG News & Q&A) -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="ai java web">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-blue/10 text-neon-blue border border-neon-blue/20 text-[11px] font-mono font-semibold">
+                                Java / Vector RAG
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">2025 – Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-blue transition-colors">
+                            WhatsNews
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Real-Time News Aggregator &amp; AI Q&amp;A Engine</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            High-performance Java backend built with Javalin and SQLite. Features vector RAG workflows using Gemini embeddings for semantic retrieval, scheduled automated ingestion, and dynamic API key/model rotation resilient against HTTP 429/503 rate limits.
+                        </p>
+
+                        <!-- Video Demo Badge Button -->
+                        <a href="https://www.loom.com/share/b05012fd7a3c45c6a8ec7363f8b86ff9" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-neon-blue/10 border border-neon-blue/25 hover:bg-neon-blue/20 flex items-center justify-between text-xs font-mono text-blue-200 mb-4 transition-all group/vid">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                                <span>Watch Video Demo (Loom)</span>
+                            </div>
+                            <svg class="w-4 h-4 text-neon-blue group-hover/vid:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Java</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Javalin</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Vector RAG</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-blue">Zero Rate-Limit Drop</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-whatsnews">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4: Automated Regression Suite (TU Ilmenau) -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="qa java">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-emerald/10 text-neon-emerald border border-neon-emerald/20 text-[11px] font-mono font-semibold">
+                                QA &amp; SDET Framework
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">TU Ilmenau • 2025</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-emerald transition-colors">
+                            University Portal Regression Suite
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Enterprise Page Object Model Test Framework</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Java automated test suite for TU Ilmenau's online project registration portal. Engineered 3 test groups covering 16 independent end-to-end scenarios (auth, registration, file upload, cancellation) using Selenide, Neodymium, JUnit 5, and Allure reporting.
+                        </p>
+
+                        <!-- Architecture checklist -->
+                        <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5 mb-4 text-[11px] font-mono space-y-1 text-gray-300">
+                            <div class="flex items-center space-x-1.5 text-neon-emerald">
+                                <span>✓</span>
+                                <span>Page Object Model &amp; Reusable Components</span>
+                            </div>
+                            <div class="flex items-center space-x-1.5 text-neon-emerald">
+                                <span>✓</span>
+                                <span>Data-driven via JSON &amp; YAML datasets</span>
+                            </div>
+                            <div class="flex items-center space-x-1.5 text-neon-emerald">
+                                <span>✓</span>
+                                <span>Allure HTML reports with visual artifacts</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Selenide</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Neodymium</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">JUnit 5</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Allure</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-emerald">16 E2E Scenarios</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-regression">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Posters Demo Store (Xceptance) -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="java web qa">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-amber/10 text-neon-amber border border-neon-amber/20 text-[11px] font-mono font-semibold">
+                                Enterprise E-Commerce
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">Xceptance • 2021 – 2024</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-amber transition-colors">
+                            Posters Demo Store Revitalization
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Multi-Tier Architecture &amp; Postman-XLT Bridge</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Project Lead for the modernization of Posters Demo Store. Handled development and release coordination across 190+ tickets (resolved &gt;70% directly). Built compatibility bridge between Postman and XLT load-testing framework for data-driven API benchmarks.
+                        </p>
+
+                        <!-- Key Achievements -->
+                        <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5 mb-4 text-[11px] font-mono space-y-1 text-gray-300">
+                            <div class="text-gray-400">Agile Project Leadership:</div>
+                            <div class="text-neon-amber font-semibold">&gt;190 tickets coordinated across 2-3 person team</div>
+                            <div class="text-gray-400">Postman &harr; XLT Load Testing Integration</div>
+                        </div>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Java</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Ninja Framework</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">JPA ORM</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">XLT / Postman</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-amber">190+ Tickets</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-posters">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6: Autonomous Drone Collision-Avoidance -->
+                <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between group" data-category="hardware">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-md bg-neon-rose/10 text-neon-rose border border-neon-rose/20 text-[11px] font-mono font-semibold">
+                                Robotics &amp; Embedded
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">Bahria Capstone • 2019</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-rose transition-colors">
+                            Autonomous Drone Collision-Avoidance
+                        </h3>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Arduino Nano &harr; ArduPilot Mega over MAVLink</p>
+                        
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Autonomous aerial vehicle connecting an Arduino Nano with an ArduPilot Mega flight controller. Integrated ultrasonic and LiDAR sensing with MAVLink telemetry protocol to detect obstacles and command real-time collision-avoidance flight maneuvers.
+                        </p>
+
+                        <!-- Radar Simulation Mini Widget -->
+                        <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5 mb-4 flex items-center justify-between">
+                            <div class="text-[11px] font-mono">
+                                <div class="text-gray-400">Telemetry Sensor Array:</div>
+                                <div class="text-neon-rose font-semibold">LiDAR + Ultrasonic (MAVLink)</div>
+                            </div>
+                            <div class="relative w-10 h-10 rounded-full border border-neon-rose/40 flex items-center justify-center">
+                                <span class="w-2 h-2 rounded-full bg-neon-rose animate-ping"></span>
+                                <div class="absolute inset-0 rounded-full border border-dashed border-neon-rose/30 animate-spin" style="animation-duration: 8s;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tech tags -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">C++</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">Arduino</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">ArduPilot</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-300 text-[11px] font-mono">MAVLink</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs font-mono text-neon-rose">Real-Time Evasion</span>
+                        <button class="open-modal-btn text-xs font-mono text-gray-300 hover:text-white flex items-center space-x-1 group-hover:translate-x-1 transition-transform" data-modal="modal-drone">
+                            <span>Deep Dive</span>
+                            <span>&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 4. INTERACTIVE SYSTEM ARCHITECTURES                            -->
+        <!-- ============================================================== -->
+        <section id="architectures" class="py-20 bg-dark-950/60 border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <div class="font-mono text-xs font-bold text-neon-purple tracking-widest uppercase">// SYSTEM BLUEPRINTS</div>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Interactive Architecture Diagrams</h2>
+                    <p class="text-sm font-mono text-gray-400 mt-2">
+                        Inspect the data flows and system design patterns behind my flagship implementations.
+                    </p>
+                </div>
+
+                <!-- Architecture Selector Tabs -->
+                <div class="flex justify-center mb-8">
+                    <div class="inline-flex p-1 rounded-xl bg-dark-900 border border-white/10 overflow-x-auto max-w-full text-xs font-mono">
+                        <button class="arch-tab px-4 py-2 rounded-lg bg-neon-purple/20 text-neon-purple font-semibold border border-neon-purple/40" data-arch="rag">
+                            1. Vector RAG Pipeline (WhatsNews)
+                        </button>
+                        <button class="arch-tab px-4 py-2 rounded-lg text-gray-400 hover:text-white" data-arch="cv">
+                            2. AI Skill Audit Engine (aicvnow)
+                        </button>
+                        <button class="arch-tab px-4 py-2 rounded-lg text-gray-400 hover:text-white" data-arch="drone">
+                            3. MAVLink Telemetry (Drone)
+                        </button>
+                        <button class="arch-tab px-4 py-2 rounded-lg text-gray-400 hover:text-white" data-arch="qa">
+                            4. Page Object Model (QA Suite)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Architecture Viewport -->
+                <div class="glass-card rounded-2xl p-6 sm:p-8 max-w-5xl mx-auto">
+                    
+                    <!-- Diagram 1: Vector RAG Pipeline -->
+                    <div id="arch-view-rag" class="arch-view space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Semantic Vector RAG &amp; Rate-Limit Recovery</h3>
+                                <p class="text-xs font-mono text-gray-400">WhatsNews Architecture: Javalin + SQLite + Gemini Embeddings</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-neon-blue/10 text-neon-blue border border-neon-blue/20 text-xs font-mono">Backend Architecture</span>
+                        </div>
+
+                        <!-- Visual Flowchart -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-6 text-center text-xs font-mono">
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-blue/30 relative">
+                                <div class="w-8 h-8 rounded-full bg-neon-blue/20 text-neon-blue mx-auto flex items-center justify-center font-bold mb-2">01</div>
+                                <div class="font-bold text-white text-sm">Data Ingestion</div>
+                                <div class="text-gray-400 mt-1">Background schedulers fetch live RSS &amp; news streams into SQLite</div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-purple/30 relative">
+                                <div class="w-8 h-8 rounded-full bg-neon-purple/20 text-neon-purple mx-auto flex items-center justify-center font-bold mb-2">02</div>
+                                <div class="font-bold text-white text-sm">Vector Embedding</div>
+                                <div class="text-gray-400 mt-1">Gemini text-embedding-004 generates high-dimensional vectors</div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-cyan/30 relative">
+                                <div class="w-8 h-8 rounded-full bg-neon-cyan/20 text-neon-cyan mx-auto flex items-center justify-center font-bold mb-2">03</div>
+                                <div class="font-bold text-white text-sm">Resilient Query</div>
+                                <div class="text-gray-400 mt-1">Cosine distance ranking with automatic key &amp; model rotation for HTTP 429</div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-emerald/30 relative">
+                                <div class="w-8 h-8 rounded-full bg-neon-emerald/20 text-neon-emerald mx-auto flex items-center justify-center font-bold mb-2">04</div>
+                                <div class="font-bold text-white text-sm">Synthesis &amp; Q&amp;A</div>
+                                <div class="text-gray-400 mt-1">Grounded synthesis streamed to frontend with reference citations</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-dark-900/60 border border-white/5 text-xs text-gray-300 font-mono leading-relaxed">
+                            <strong class="text-neon-cyan">Engineering Decision:</strong> Used Javalin for its ultra-lightweight footprint and raw JVM concurrency. Integrated token-bucket model rotation to automatically failover from HTTP 429/503 errors without dropping active user requests.
+                        </div>
+                    </div>
+
+                    <!-- Diagram 2: AI Skill Audit Engine -->
+                    <div id="arch-view-cv" class="arch-view hidden space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">AI Skill Audit &amp; Anti-Buzzword Humanizer</h3>
+                                <p class="text-xs font-mono text-gray-400">aicvnow Architecture: Node.js + Gemini + Structured JSON Contracts</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 text-xs font-mono">Full-Stack AI Flow</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-6 text-center text-xs font-mono">
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-cyan/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-cyan/20 text-neon-cyan mx-auto flex items-center justify-center font-bold mb-2">01</div>
+                                <div class="font-bold text-white text-sm">Dual Ingestion</div>
+                                <div class="text-gray-400 mt-1">Master CV Source of Truth + Target Job Description tokenized</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-amber/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-amber/20 text-neon-amber mx-auto flex items-center justify-center font-bold mb-2">02</div>
+                                <div class="font-bold text-white text-sm">Structured Audit</div>
+                                <div class="text-gray-400 mt-1">Extracts Matched, Omitted, and Missing skills with ATS Score estimate</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-emerald/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-emerald/20 text-neon-emerald mx-auto flex items-center justify-center font-bold mb-2">03</div>
+                                <div class="font-bold text-white text-sm">Live DOM &amp; PDF Sync</div>
+                                <div class="text-gray-400 mt-1">Click-to-edit preview synchronization &amp; Puppeteer headless rendering</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-dark-900/60 border border-white/5 text-xs text-gray-300 font-mono leading-relaxed">
+                            <strong class="text-neon-cyan">Engineering Decision:</strong> Implemented strict anti-buzzword constraints forbidding synthetic clichés (e.g., "spearheaded", "synergized") and mandated structural JSON encapsulation for skill telemetry.
+                        </div>
+                    </div>
+
+                    <!-- Diagram 3: Drone MAVLink Telemetry -->
+                    <div id="arch-view-drone" class="arch-view hidden space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">MAVLink Telemetry &amp; Real-Time Evasion Loop</h3>
+                                <p class="text-xs font-mono text-gray-400">Robotics Architecture: Arduino Nano + ArduPilot Mega (APM)</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-neon-rose/10 text-neon-rose border border-neon-rose/20 text-xs font-mono">Embedded System</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-6 text-center text-xs font-mono">
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-rose/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-rose/20 text-neon-rose mx-auto flex items-center justify-center font-bold mb-2">01</div>
+                                <div class="font-bold text-white text-sm">Sensor Acquisition</div>
+                                <div class="text-gray-400 mt-1">Ultrasonic ranging + LiDAR pulsed distance captured by Arduino Nano</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-purple/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-purple/20 text-neon-purple mx-auto flex items-center justify-center font-bold mb-2">02</div>
+                                <div class="font-bold text-white text-sm">MAVLink Protocol Packet</div>
+                                <div class="text-gray-400 mt-1">Serial packet encoding with checksum verification at 57600 baud</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-cyan/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-cyan/20 text-neon-cyan mx-auto flex items-center justify-center font-bold mb-2">03</div>
+                                <div class="font-bold text-white text-sm">APM Trajectory Override</div>
+                                <div class="text-gray-400 mt-1">Autonomous flight controller overrides roll/pitch to clear obstacle vector</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-dark-900/60 border border-white/5 text-xs text-gray-300 font-mono leading-relaxed">
+                            <strong class="text-neon-cyan">Engineering Decision:</strong> Delegated sensor polling to a lightweight Arduino Nano to prevent flight controller CPU interrupt starvation, passing structured MAVLink messages over hardware UART.
+                        </div>
+                    </div>
+
+                    <!-- Diagram 4: Page Object Model QA Suite -->
+                    <div id="arch-view-qa" class="arch-view hidden space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Enterprise Page Object Model &amp; Allure CI Pipeline</h3>
+                                <p class="text-xs font-mono text-gray-400">QA Automation Architecture: Selenide + Neodymium + JUnit 5</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-neon-emerald/10 text-neon-emerald border border-neon-emerald/20 text-xs font-mono">SDET Framework</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-6 text-center text-xs font-mono">
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-emerald/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-emerald/20 text-neon-emerald mx-auto flex items-center justify-center font-bold mb-2">01</div>
+                                <div class="font-bold text-white text-sm">Data Sets</div>
+                                <div class="text-gray-400 mt-1">JSON &amp; YAML localized test records and user credentials</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-blue/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-blue/20 text-neon-blue mx-auto flex items-center justify-center font-bold mb-2">02</div>
+                                <div class="font-bold text-white text-sm">Page Objects</div>
+                                <div class="text-gray-400 mt-1">Shared web components and strict locator encapsulation</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-purple/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-purple/20 text-neon-purple mx-auto flex items-center justify-center font-bold mb-2">03</div>
+                                <div class="font-bold text-white text-sm">Test Flows</div>
+                                <div class="text-gray-400 mt-1">16 modular end-to-end scenarios executed via JUnit 5</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dark-900/90 border border-neon-cyan/30">
+                                <div class="w-8 h-8 rounded-full bg-neon-cyan/20 text-neon-cyan mx-auto flex items-center justify-center font-bold mb-2">04</div>
+                                <div class="font-bold text-white text-sm">Allure Telemetry</div>
+                                <div class="text-gray-400 mt-1">Automated screenshots, failure stacks, and timeline analytics</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-dark-900/60 border border-white/5 text-xs text-gray-300 font-mono leading-relaxed">
+                            <strong class="text-neon-cyan">Engineering Decision:</strong> Avoided brittle XPath expressions by coupling smart CSS locators with Neodymium assertions, cutting test flakiness to near zero.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 5. TECHNICAL SKILLS MATRIX (Categorized with live search)     -->
+        <!-- ============================================================== -->
+        <section id="skills" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <div class="font-mono text-xs font-bold text-neon-cyan tracking-widest uppercase">// COMPETENCIES &amp; TOOLING</div>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Technical Skills Matrix</h2>
+                </div>
+
+                <!-- Live Skill Search -->
+                <div class="mt-4 md:mt-0 relative w-full md:w-72">
+                    <input type="text" id="skill-search" placeholder="Filter skills (e.g. Java, PyTorch)..." class="w-full px-4 py-2 rounded-xl bg-dark-850 border border-white/10 focus:border-neon-cyan text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:shadow-neon-cyan transition-all">
+                    <span class="absolute right-3 top-2.5 text-xs text-gray-500 font-mono">⌕</span>
+                </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="flex items-center overflow-x-auto gap-2 pb-4 mb-8 font-mono text-xs">
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-neon-cyan/15 text-neon-cyan border border-neon-cyan/30 font-semibold" data-cat="all">All Skills</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="lang">Languages</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="ai">AI &amp; Machine Learning</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="java">Java &amp; Backend</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="qa">QA &amp; Automation</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="web">Web &amp; Frontend</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="data">Databases &amp; Cloud</button>
+                <button class="skill-cat-btn px-3 py-1.5 rounded-lg bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-cat="hw">Hardware &amp; Systems</button>
+            </div>
+
+            <!-- Skills Badges Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="skills-container">
+                <!-- Dynamically populated / server-rendered items with category attributes -->
+                
+                <!-- Languages -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="Java">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Java</span>
+                        <span class="text-[10px] text-gray-500">Core</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Posters Store, WhatsNews</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="Python">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>Python</span>
+                        <span class="text-[10px] text-gray-500">Research</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">LLM Eval, PyTorch</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="JavaScript">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-blue font-bold">
+                        <span>JavaScript</span>
+                        <span class="text-[10px] text-gray-500">Full-Stack</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Node.js, ES6+, Web</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="TypeScript">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-blue font-bold">
+                        <span>TypeScript</span>
+                        <span class="text-[10px] text-gray-500">Typed</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Full-Stack, React</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="C++">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>C++</span>
+                        <span class="text-[10px] text-gray-500">Systems</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Arduino, Microcontrollers</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="lang" data-name="PHP">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-amber font-bold">
+                        <span>PHP</span>
+                        <span class="text-[10px] text-gray-500">MVC</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">CodeIgniter 3/4</div>
+                </div>
+
+                <!-- AI / ML -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="PyTorch">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>PyTorch</span>
+                        <span class="text-[10px] text-gray-500">DL</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Hallucination Research</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="Vector RAG">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>Vector RAG</span>
+                        <span class="text-[10px] text-gray-500">Semantic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">WhatsNews, Gemini</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="LLM Evaluation">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>LLM Evaluation</span>
+                        <span class="text-[10px] text-gray-500">Metrics</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Qwen, Gemma, Llama</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="Gemini API">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>Gemini API</span>
+                        <span class="text-[10px] text-gray-500">GenAI</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">aicvnow, WhatsNews</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="Embeddings & Cosine">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>Embeddings</span>
+                        <span class="text-[10px] text-gray-500">Similarity</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Cosine &amp; Prospect Score</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="ai" data-name="Prompt Engineering">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple font-bold">
+                        <span>Prompt Eng.</span>
+                        <span class="text-[10px] text-gray-500">Agentic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Anti-buzzword, JSON</div>
+                </div>
+
+                <!-- Java & Backend -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="Javalin">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Javalin</span>
+                        <span class="text-[10px] text-gray-500">REST</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">WhatsNews Service</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="Ninja Framework">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Ninja Framework</span>
+                        <span class="text-[10px] text-gray-500">Full-Stack</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Posters Store Modernization</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="Spring Boot">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Spring Boot</span>
+                        <span class="text-[10px] text-gray-500">Enterprise</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Microservices &amp; REST</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="JPA ORM & Hibernate">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>JPA / Hibernate</span>
+                        <span class="text-[10px] text-gray-500">ORM</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Entity Relationships</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="Maven">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Maven</span>
+                        <span class="text-[10px] text-gray-500">Build</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Dependency Pipelines</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="java" data-name="REST APIs & gRPC">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>REST / gRPC</span>
+                        <span class="text-[10px] text-gray-500">Protocols</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Data Interchange</div>
+                </div>
+
+                <!-- QA & Automation -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="Selenium WebDriver">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>Selenium</span>
+                        <span class="text-[10px] text-gray-500">E2E</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Automation Suites</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="Selenide & Neodymium">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>Selenide</span>
+                        <span class="text-[10px] text-gray-500">Concise</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">TU Ilmenau Portal Suite</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="Playwright">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>Playwright</span>
+                        <span class="text-[10px] text-gray-500">Modern QA</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Headless Automation</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="JUnit 5">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>JUnit 5</span>
+                        <span class="text-[10px] text-gray-500">Testing</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Assertions &amp; Runner</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="XLT & XTC">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>XLT / XTC</span>
+                        <span class="text-[10px] text-gray-500">Load Test</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Xceptance Load Engine</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="qa" data-name="Allure Reporting">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-emerald font-bold">
+                        <span>Allure</span>
+                        <span class="text-[10px] text-gray-500">Telemetry</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Regression Dashboards</div>
+                </div>
+
+                <!-- Web & Frontend -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="web" data-name="Node.js & Express">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-blue font-bold">
+                        <span>Node / Express</span>
+                        <span class="text-[10px] text-gray-500">Backend</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">aicvnow API Server</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="web" data-name="Tailwind CSS">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-blue font-bold">
+                        <span>Tailwind CSS</span>
+                        <span class="text-[10px] text-gray-500">Styling</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Modern Responsive UIs</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="web" data-name="Bootstrap & FreeMarker">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-blue font-bold">
+                        <span>FreeMarker</span>
+                        <span class="text-[10px] text-gray-500">Templates</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Posters Store UI</div>
+                </div>
+
+                <!-- Data & Storage -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="data" data-name="SQLite & JDBC">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-amber font-bold">
+                        <span>SQLite</span>
+                        <span class="text-[10px] text-gray-500">Embedded</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">WhatsNews Storage</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="data" data-name="Supabase & SQL">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-amber font-bold">
+                        <span>Supabase</span>
+                        <span class="text-[10px] text-gray-500">BaaS</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Auth &amp; Row-Level Sec</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="data" data-name="MySQL & H2">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-amber font-bold">
+                        <span>MySQL / H2</span>
+                        <span class="text-[10px] text-gray-500">RDBMS</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Relational Systems</div>
+                </div>
+
+                <!-- Hardware & Systems -->
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="Arduino Nano">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>Arduino</span>
+                        <span class="text-[10px] text-gray-500">MCU</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Drone Sensor System</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="ArduPilot Mega">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>ArduPilot Mega</span>
+                        <span class="text-[10px] text-gray-500">Flight</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Autonomous Navigation</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="MAVLink Telemetry">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>MAVLink</span>
+                        <span class="text-[10px] text-gray-500">Protocol</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Microcontroller Comms</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="LiDAR & Ultrasonic Sensors">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>LiDAR / Ultrasonic</span>
+                        <span class="text-[10px] text-gray-500">Sensors</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Obstacle Avoidance</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="Hardware Diagnostics & Soldering">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-rose font-bold">
+                        <span>Electronics Repair</span>
+                        <span class="text-[10px] text-gray-500">Triage</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">Repair Café Volunteer</div>
+                </div>
+
+                <div class="skill-pill glass-card p-3 rounded-xl flex flex-col justify-between" data-cat="hw" data-name="Git & Linux Shell">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan font-bold">
+                        <span>Git / Bash / Linux</span>
+                        <span class="text-[10px] text-gray-500">Ops</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 mt-2 font-mono">CI/CD, Workflow Automation</div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 6. EXPERIENCE & LEADERSHIP TIMELINE                            -->
+        <!-- ============================================================== -->
+        <section id="experience" class="py-20 bg-dark-950/40 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <div class="font-mono text-xs font-bold text-neon-emerald tracking-widest uppercase">// CAREER TRAJECTORY</div>
+                        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Professional Experience</h2>
+                    </div>
+                    <div class="text-xs font-mono text-gray-400 mt-2 md:mt-0">
+                        Agile development, QA automation, and volunteer community leadership.
+                    </div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-white/10 ml-4 md:ml-8 space-y-12">
+                    
+                    <!-- Role 1: Xceptance -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-900 border-2 border-neon-cyan group-hover:scale-125 transition-transform shadow-neon-cyan"></div>
+                        
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-cyan transition-colors">
+                                        Software Engineer / Junior QA Engineer
+                                    </h3>
+                                    <p class="text-sm font-medium text-neon-cyan">Xceptance Software Technologies GmbH</p>
                                 </div>
-                            </section>
-                            <section id="swe-skills">
-                                <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Technical Skills</h2>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <p class="text-sm text-gray-600 mb-4">This chart provides a visual overview of key technical competencies for the Software Engineer role. It highlights core development languages, frameworks, and tools.</p>
-                                    <div class="chart-container">
-                                        <canvas id="sweSkillsChart"></canvas>
-                                    </div>
+                                <div class="text-xs font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 w-max">
+                                    12/2021 – 09/2024 • Jena, Germany
                                 </div>
-                            </section>
-                        </aside>
+                            </div>
+                            
+                            <div class="text-xs font-mono text-gray-400 mb-4">
+                                Working Student &rarr; Promoted to Full-Time • Agile/Scrum Team Lead
+                            </div>
+
+                            <ul class="text-sm text-gray-300 space-y-2.5 list-disc list-inside leading-relaxed">
+                                <li>
+                                    <strong class="text-white">Project Lead:</strong> Coordinated the modernization and continuous releases of the Posters Demo Store web application with a 2–3 person team, managing over <span class="text-neon-cyan font-semibold">190 tickets</span> and directly authoring solutions for over 70% of issues.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Framework Modernization:</strong> Maintained and revitalized a multi-tier e-commerce platform using <span class="text-white">Java, Ninja Framework, JPA ORM, FreeMarker templates, and SQL</span>.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Postman-to-XLT Compatibility Layer:</strong> Engineered a bridge enabling Postman collections to run seamlessly within the company's proprietary XLT load-testing engine for scalable data-driven API benchmarks.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Automated Testing &amp; Monitoring:</strong> Built and maintained test suites using Selenium WebDriver, Selenide, Neodymium, JUnit, and deployed monitoring suites to XTC cloud.
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/10">
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-neon-cyan text-xs font-mono">Java</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Ninja Framework</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">JPA ORM</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Selenium / Selenide</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">XLT / XTC</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Postman</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 2: Volunteer Repair Cafe -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-900 border-2 border-neon-emerald group-hover:scale-125 transition-transform shadow-neon-emerald"></div>
+                        
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-emerald transition-colors">
+                                        Repair Café Deputy Manager | Volunteer
+                                    </h3>
+                                    <p class="text-sm font-medium text-neon-emerald">Ingenieure Ohne Grenzen (Engineers Without Borders)</p>
+                                </div>
+                                <div class="text-xs font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 w-max">
+                                    10/2021 – Ongoing • Ilmenau, Germany
+                                </div>
+                            </div>
+
+                            <ul class="text-sm text-gray-300 space-y-2.5 list-disc list-inside leading-relaxed">
+                                <li>
+                                    <strong class="text-white">Electronics Troubleshooting &amp; Repair:</strong> Diagnose and repair hardware and software faults across laptops, PCs, smartphones, audio gear, and PCBs.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Circular Tech &amp; Sustainability:</strong> Champion circular electronics and repair-not-replace culture, preventing functional consumer electronics from entering waste streams.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Community Operations:</strong> Coordinate volunteer workshops, mentor new technicians, and manage testing instruments and safety protocols.
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/10">
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-neon-emerald text-xs font-mono">Hardware Diagnostics</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Soldering</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Circuits</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">Sustainability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 3: Final Solutions -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-900 border-2 border-neon-purple group-hover:scale-125 transition-transform shadow-neon-purple"></div>
+                        
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-xl font-heading font-bold text-white group-hover:text-neon-purple transition-colors">
+                                        Full Stack Web Development Intern
+                                    </h3>
+                                    <p class="text-sm font-medium text-neon-purple">Final Solutions</p>
+                                </div>
+                                <div class="text-xs font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 w-max">
+                                    03/2021 – 07/2021 • Islamabad, Pakistan
+                                </div>
+                            </div>
+
+                            <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside leading-relaxed">
+                                <li>
+                                    Built and maintained customer-facing web applications using PHP and CodeIgniter 3/4 MVC architecture.
+                                </li>
+                                <li>
+                                    Integrated backend relational databases with frontend templates, fixed defects, and improved UI stability.
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/10">
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-neon-purple text-xs font-mono">PHP</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">CodeIgniter</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">MySQL</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-gray-300 text-xs font-mono">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 7. EDUCATION & RESEARCH                                        -->
+        <!-- ============================================================== -->
+        <section id="education" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="font-mono text-xs font-bold text-neon-cyan tracking-widest uppercase">// ACADEMIC FOUNDATIONS</div>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Education &amp; Credentials</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Master of Science -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-cyan mb-2">
+                        <span>GRADUATE RESEARCH</span>
+                        <span>Ongoing</span>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white">M.Sc. in Computer &amp; Systems Engineering</h3>
+                    <p class="text-sm font-medium text-gray-300 mt-1">Technische Universität Ilmenau • Ilmenau, Germany</p>
+                    <p class="text-sm text-gray-400 mt-4 leading-relaxed">
+                        Specialized focus in empirical LLM evaluation, hallucination quantification, vector similarity semantics, and distributed software systems.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-2 text-xs font-mono text-gray-400">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">LLM Evaluation</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">System Architectures</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">Distributed Testing</span>
+                    </div>
+                </div>
+
+                <!-- Bachelor of Engineering -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-xs font-mono text-neon-purple mb-2">
+                        <span>UNDERGRADUATE DEGREE</span>
+                        <span>2015 – 2019</span>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-white">Bachelor of Engineering in Computer Engineering</h3>
+                    <p class="text-sm font-medium text-gray-300 mt-1">Bahria University • Islamabad, Pakistan</p>
+                    <p class="text-sm text-gray-400 mt-4 leading-relaxed">
+                        Comprehensive curriculum in computer architecture, microcontrollers, embedded systems, network protocols, digital logic, and software engineering. Capstone: Autonomous Drone Collision-Avoidance System.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-2 text-xs font-mono text-gray-400">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">Computer Architecture</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">Embedded Systems</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300">Robotics</span>
                     </div>
                 </div>
             </div>
 
-            <!-- QA Engineer Content -->
-            <div id="qa-content" class="resume-content hidden">
-                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2">
-                        <section id="qa-experience">
-                            <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Professional Experience</h2>
-                            <div class="space-y-6">
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <h3 class="text-xl font-semibold">Software Engineer / Junior QA Engineer</h3>
-                                    <p class="text-md text-gray-600">Xceptance Software Technologies GmbH | Jena, Germany</p>
-                                    <p class="text-sm text-gray-500 mb-3">April 2024 – September 2024</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                                        <li>Engineered a comprehensive test automation suite, reducing manual testing effort and significantly improving product reliability.</li>
-                                        <li>Enhanced and expanded existing load and automation test suites using XLT, Selenium, and Playwright.</li>
-                                        <li>Collaborated cross-functionally with Development teams to integrate robust testing practices into the software development lifecycle.</li>
-                                        <li>Deployed, customized, and extended monitoring test suites for XTC.</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                    <h3 class="text-xl font-semibold">Software Engineering Working Student (Part-Time)</h3>
-                                    <p class="text-md text-gray-600">Xceptance Software Technologies GmbH | Jena, Germany</p>
-                                    <p class="text-sm text-gray-500 mb-3">December 2021 – April 2024</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                                        <li>Adapted test suites for unit tests and UI tests.</li>
-                                        <li>Created and derived test cases from requirements to ensure full coverage.</li>
-                                        <li>Enhanced, debugged, and performed testing on the "Posters-Demo Store" web application.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <section id="qa-education" class="mt-8">
-                            <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Education</h2>
-                            <div class="bg-white p-6 rounded-lg shadow-sm">
-                                <h3 class="text-xl font-semibold">Master of Science in Research in Computer & Systems Engineering</h3>
-                                <p class="text-md text-gray-600">Technische Universität Ilmenau</p>
-                                <p class="text-sm text-gray-500">October 2021 – Present</p>
-                            </div>
-                        </section>
+            <!-- Language Fluency Bar -->
+            <div class="glass-card p-6 rounded-2xl mt-6">
+                <div class="text-xs font-mono text-gray-400 mb-4 font-bold">// LINGUISTIC PROFICIENCY</div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono text-xs">
+                    <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5">
+                        <div class="font-bold text-white text-sm">English</div>
+                        <div class="text-neon-cyan mt-1">Fluent C1 / C2</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">Professional Working</div>
                     </div>
-                    <div class="lg:col-span-1">
-                        <aside class="space-y-8">
-                            <section id="qa-summary">
-                                <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Summary</h2>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                   <p class="text-gray-700">Highly dedicated Quality Assurance Engineer with 2+ years of experience, specializing in test automation using WebDriver/Selenium and Playwright. Proven ability to design, implement, and maintain comprehensive test suites, ensuring high software quality within Agile environments through close collaboration with development teams.</p>
-                                </div>
-                            </section>
-                            <section id="qa-skills">
-                                <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-gray-900">Technical Skills</h2>
-                                <div class="bg-white p-6 rounded-lg shadow-sm">
-                                     <p class="text-sm text-gray-600 mb-4">This chart provides a visual overview of key technical competencies for the QA Engineer role, emphasizing expertise in automation frameworks, testing tools, and supporting technologies.</p>
-                                    <div class="chart-container">
-                                        <canvas id="qaSkillsChart"></canvas>
-                                    </div>
-                                </div>
-                            </section>
-                        </aside>
+                    <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5">
+                        <div class="font-bold text-white text-sm">German (Deutsch)</div>
+                        <div class="text-neon-emerald mt-1">B1+ Active</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">Daily &amp; Professional</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5">
+                        <div class="font-bold text-white text-sm">Urdu / Hindi</div>
+                        <div class="text-neon-purple mt-1">Native</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">Bilingual</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-dark-950/70 border border-white/5">
+                        <div class="font-bold text-white text-sm">Punjabi / Pahari</div>
+                        <div class="text-neon-amber mt-1">Native</div>
+                        <div class="text-[10px] text-gray-500 mt-0.5">Mother Tongue</div>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
 
+        <!-- ============================================================== -->
+        <!-- 8. THE HUMAN DIMENSION: BEYOND THE TERMINAL (Bento Box)        -->
+        <!-- ============================================================== -->
+        <section id="passions" class="py-20 bg-dark-950/60 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <div class="font-mono text-xs font-bold text-neon-rose tracking-widest uppercase">// HUMAN DIMENSION</div>
+                        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">Beyond The Code</h2>
+                    </div>
+                    <p class="text-sm font-mono text-gray-400 mt-2 md:mt-0 max-w-md">
+                        Great software engineers are fueled by curiosity across history, visual aesthetics, tactile mechanics, and strategy.
+                    </p>
+                </div>
+
+                <!-- Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Box 1: Fujifilm Photography -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan mb-4">
+                                📷
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Fujifilm Photography</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Passionate about street photography, architectural geometry, and rule-of-thirds landscapes. Finding order, symmetry, and emotion through the glass of a Fujifilm sensor.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Street</span> • <span>Rule of Thirds</span> • <span>Landscapes</span>
+                        </div>
+                    </div>
+
+                    <!-- Box 2: Repair Culture & E-Waste -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 flex items-center justify-center text-neon-emerald mb-4">
+                                🔧
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Repair Culture &amp; Circular Tech</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Deputy Manager at Repair Café Ilmenau. Passionate about reviving discarded electronics, micro-soldering, tracing PCB rails, and fighting against planned obsolescence.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Micro-soldering</span> • <span>PCBs</span> • <span>Reuse</span>
+                        </div>
+                    </div>
+
+                    <!-- Box 3: Ancient History & Chronology -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-amber/10 border border-neon-amber/20 flex items-center justify-center text-neon-amber mb-4">
+                                🏛️
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Deep History &amp; Chronology</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Voracious reader of world history: Sumerian administrative scripts, Spartan geopolitics, Roman republican transitions, and Heian-period Japan (1026 AD).
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Sumer</span> • <span>Sparta</span> • <span>Rome</span> • <span>Japan 1026 AD</span>
+                        </div>
+                    </div>
+
+                    <!-- Box 4: Writing & Literature -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-purple/10 border border-neon-purple/20 flex items-center justify-center text-neon-purple mb-4">
+                                ✍️
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Writing &amp; Classical Literature</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Writing for clarity and reflection — tech articles, essays, and poetry. Drawing timeless insights from classical fiction and physics philosophy.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Poetry</span> • <span>Tech Essays</span> • <span>Physics</span>
+                        </div>
+                    </div>
+
+                    <!-- Box 5: Chess & Tactical Gaming -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-neon-blue mb-4">
+                                ♟️
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Chess &amp; Strategy RPGs</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Exercising foresight, positional patience, and risk calculation through chess endgames and immersive tactical role-playing games.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Tactics</span> • <span>Endgames</span> • <span>RPG Systems</span>
+                        </div>
+                    </div>
+
+                    <!-- Box 6: Audio & Music -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-neon-rose/10 border border-neon-rose/20 flex items-center justify-center text-neon-rose mb-4">
+                                🎧
+                            </div>
+                            <h3 class="text-lg font-heading font-bold text-white mb-2">Soundscapes &amp; Music</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Deep focus powered by driving Berlin/European techno, golden-era hip-hop, and timeless vintage soul/oldies.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5 text-[11px] font-mono text-gray-400">
+                            <span>Techno</span> • <span>Hip-Hop</span> • <span>Oldies</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 9. RECRUITER HUB & TAILORED CV SELECTOR                        -->
+        <!-- ============================================================== -->
+        <section id="recruiter-hub" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-neon-purple/30 relative overflow-hidden shadow-neon-purple">
+                
+                <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-8">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-neon-purple/10 border border-neon-purple/30 text-xs font-mono text-neon-purple mb-3">
+                            <span>⚡ HIRING MANAGER / RECRUITER ACCELERATOR</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">
+                            Tailored Profiles &amp; Fast-Track Evaluation
+                        </h2>
+                        <p class="text-sm text-gray-300 mt-2 max-w-2xl">
+                            Select the role profile closest to your hiring need to see the exact verified summary, technical alignment, and copyable resume narrative.
+                        </p>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button id="copy-summary-btn" class="px-4 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-750 border border-white/10 hover:border-neon-cyan text-xs font-mono text-white flex items-center space-x-2 transition-all">
+                            <span>📋 Copy Summary</span>
+                        </button>
+                        <button id="view-markdown-cv-btn" class="px-4 py-2.5 rounded-xl bg-neon-purple/20 hover:bg-neon-purple/30 border border-neon-purple/40 text-xs font-mono text-purple-200 flex items-center space-x-2 transition-all">
+                            <span>📄 View Full Master CV</span>
+                        </button>
+                        <button onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-950 font-bold text-xs font-mono flex items-center space-x-2 transition-all shadow-neon-cyan">
+                            <span>🖨️ Print / Save PDF</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Role Selector Tabs -->
+                <div class="flex items-center overflow-x-auto gap-2 pb-2 mb-6 font-mono text-xs">
+                    <button class="cv-tab px-4 py-2 rounded-xl bg-neon-purple text-dark-950 font-bold" data-profile="qa">
+                        QA / SDET Automation
+                    </button>
+                    <button class="cv-tab px-4 py-2 rounded-xl bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-profile="ai">
+                        AI &amp; LLM Engineering
+                    </button>
+                    <button class="cv-tab px-4 py-2 rounded-xl bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-profile="java">
+                        Java Development
+                    </button>
+                    <button class="cv-tab px-4 py-2 rounded-xl bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-profile="web">
+                        Web Development
+                    </button>
+                    <button class="cv-tab px-4 py-2 rounded-xl bg-dark-800 text-gray-300 hover:text-white border border-white/10" data-profile="embedded">
+                        Hardware &amp; Embedded
+                    </button>
+                </div>
+
+                <!-- Display Box for Tailored Narrative -->
+                <div class="p-6 rounded-2xl bg-dark-950/80 border border-white/10 font-mono text-sm leading-relaxed text-gray-200" id="tailored-summary-box">
+                    <div class="flex items-center justify-between text-xs text-neon-cyan mb-3 pb-2 border-b border-white/5">
+                        <span id="tailored-title">// TARGET ROLE: QA / TEST AUTOMATION / SDET PROFILE</span>
+                        <span class="text-gray-500">Source: Verified Master CV</span>
+                    </div>
+                    <p id="tailored-text" class="text-gray-300">
+                        QA and test automation engineer with around 3 years of software engineering experience, including automated UI and API testing, load and performance testing, debugging, and release work in Agile projects. Worked with Selenium WebDriver, Playwright, JUnit, Selenide, Neodymium, XLT/XTC, Postman, and Allure, and has experience turning requirements into test cases and maintaining automated test suites. English C1/C2, German B1+.
+                    </p>
+                    
+                    <div class="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-between text-xs text-gray-400">
+                        <div>
+                            <span class="text-white font-bold">Key Stack:</span> 
+                            <span id="tailored-stack" class="text-neon-cyan">Selenium, Selenide, Neodymium, Playwright, JUnit 5, XLT, Postman, Allure</span>
+                        </div>
+                        <span class="text-neon-emerald mt-2 sm:mt-0 font-bold">✓ Ready for Technical Interview</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 10. CONTACT & CONNECT DOCK                                     -->
+        <!-- ============================================================== -->
+        <section id="contact" class="py-20 bg-dark-950 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div>
+                        <div class="font-mono text-xs font-bold text-neon-cyan tracking-widest uppercase">// INITIATE CONNECTION</div>
+                        <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white mt-1">
+                            Let's Build Something Exceptional
+                        </h2>
+                        <p class="text-base text-gray-300 mt-4 leading-relaxed max-w-lg">
+                            Whether you're looking for an AI engineer to architect resilient evaluation/RAG pipelines, a Java engineer to lead enterprise backends, or an SDET to build zero-flakiness test suites — I am ready to contribute immediately.
+                        </p>
+
+                        <!-- Local time clock -->
+                        <div class="mt-6 flex items-center space-x-3 text-xs font-mono text-gray-400">
+                            <span class="w-2.5 h-2.5 rounded-full bg-neon-emerald animate-ping"></span>
+                            <span>Ilmenau, Germany Local Time:</span>
+                            <span id="local-time" class="text-neon-cyan font-bold">CET/CEST</span>
+                        </div>
+                    </div>
+
+                    <!-- Direct Connect Cards -->
+                    <div class="space-y-4">
+                        
+                        <!-- Email Card -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400">Primary Email</div>
+                                    <a href="mailto:muhammadsaroshali@gmail.com" class="text-base font-heading font-bold text-white hover:text-neon-cyan transition-colors">
+                                        muhammadsaroshali@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="copy-email-btn px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 hover:text-white border border-white/10 hover:border-neon-cyan transition-all" data-email="muhammadsaroshali@gmail.com">
+                                Copy
+                            </button>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 flex items-center justify-center text-neon-emerald">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400">Direct Phone</div>
+                                    <a href="tel:+4915213431198" class="text-base font-heading font-bold text-white hover:text-neon-emerald transition-colors">
+                                        +49 152 13431198
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="tel:+4915213431198" class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 hover:text-white border border-white/10 hover:border-neon-emerald transition-all">
+                                Call
+                            </a>
+                        </div>
+
+                        <!-- LinkedIn Card -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center justify-between group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-neon-blue">
+                                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400">Professional Network</div>
+                                    <a href="https://linkedin.com/in/muhammad-sarosh-ali-8b49191b9/" target="_blank" rel="noopener noreferrer" class="text-base font-heading font-bold text-white hover:text-neon-blue transition-colors">
+                                        linkedin.com/in/muhammad-sarosh-ali
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="https://linkedin.com/in/muhammad-sarosh-ali-8b49191b9/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-dark-800 text-xs font-mono text-gray-300 hover:text-white border border-white/10 hover:border-neon-blue transition-all">
+                                Connect
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-dark-950 border-t border-white/5 text-xs font-mono text-gray-500 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="text-neon-cyan">&gt;_</span>
+                <span>Muhammad Sarosh Ali • Built with Antigravity 2.0 • Hosted on GitHub Pages</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#hero" class="hover:text-neon-cyan transition-colors">Back to top &uarr;</a>
+                <span>•</span>
+                <button id="footer-terminal-btn" class="hover:text-neon-cyan transition-colors">Launch CLI</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================== -->
+    <!-- MODALS & OVERLAYS                                              -->
+    <!-- ============================================================== -->
+
+    <!-- 1. Interactive Retro-Futuristic Terminal HUD (Ctrl+K) -->
+    <div id="terminal-modal" class="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-3xl glass-card rounded-2xl border border-neon-cyan/40 shadow-neon-cyan overflow-hidden flex flex-col h-[520px]">
+            
+            <!-- Terminal Header Bar -->
+            <div class="px-4 py-3 bg-dark-900 border-b border-white/10 flex items-center justify-between font-mono text-xs text-gray-400">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block cursor-pointer" id="close-terminal-dot"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                    <span class="pl-2 text-gray-300 font-bold">msaroshali@system-terminal:~ (AGY-OS v2.4)</span>
+                </div>
+                <div class="text-[11px] text-gray-500">
+                    Type <span class="text-neon-cyan font-bold">help</span> | Press ESC to exit
+                </div>
+            </div>
+
+            <!-- Terminal Output Area -->
+            <div id="terminal-output" class="flex-1 p-4 overflow-y-auto font-mono text-xs sm:text-sm text-gray-300 space-y-2 bg-dark-950/90">
+                <div class="text-neon-cyan">
+                    ================================================================<br>
+                    Welcome to Muhammad Sarosh Ali's Interactive Terminal HUD.<br>
+                    M.Sc. Systems Researcher &amp; Polymath Software Engineer.<br>
+                    ================================================================
+                </div>
+                <div class="text-gray-400">
+                    Type <span class="text-neon-emerald font-bold">help</span> to list available commands.<br>
+                    Try <span class="text-neon-purple font-bold">whoami</span>, <span class="text-neon-blue font-bold">skills</span>, <span class="text-neon-amber font-bold">projects</span>, <span class="text-neon-rose font-bold">eval</span>, or <span class="text-neon-cyan font-bold">matrix</span>.
+                </div>
+            </div>
+
+            <!-- Terminal Input Line -->
+            <div class="p-3 bg-dark-900 border-t border-white/10 flex items-center space-x-2 font-mono text-xs sm:text-sm">
+                <span class="text-neon-cyan font-bold">visitor@msaroshali:~$</span>
+                <input type="text" id="terminal-input" class="flex-1 bg-transparent border-none text-white focus:outline-none" placeholder="Enter command..." autocomplete="off" spellcheck="false">
+            </div>
+
+        </div>
     </div>
 
+    <!-- 2. Master CV Markdown Preview Modal -->
+    <div id="cv-modal" class="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-4xl glass-card rounded-2xl border border-neon-purple/40 shadow-neon-purple overflow-hidden flex flex-col h-[650px]">
+            
+            <div class="px-6 py-4 bg-dark-900 border-b border-white/10 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-heading font-bold text-white">Muhammad Sarosh Ali | Master CV Document</h3>
+                    <p class="text-xs font-mono text-gray-400">Single Source of Truth (Ilmenau, Germany)</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button id="copy-full-cv-btn" class="px-3 py-1.5 rounded-lg bg-neon-purple/20 text-xs font-mono text-purple-200 hover:bg-neon-purple/30 border border-neon-purple/40 transition-all">
+                        Copy Markdown
+                    </button>
+                    <button id="close-cv-modal-btn" class="p-2 text-gray-400 hover:text-white">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex-1 p-6 overflow-y-auto font-mono text-xs sm:text-sm text-gray-300 leading-relaxed space-y-4 bg-dark-950/90 whitespace-pre-wrap select-text" id="full-cv-text">
+# MASTER CV : MUHAMMAD SAROSH ALI
+Email: muhammadsaroshali@gmail.com | Phone: +49 15213431198
+Location: Ilmenau, Germany | LinkedIn: linkedin.com/in/muhammad-sarosh-ali-8b49191b9/
+GitHub: github.com/msaroshali
+
+## PROFESSIONAL SUMMARY
+Software Engineer &amp; M.Sc. Researcher at TU Ilmenau with around 3 years of software engineering experience. Expertise across LLM evaluation, RAG architectures, Java multi-tier enterprise systems, and automated testing (SDET). English C1/C2, German B1+.
+
+## WORK EXPERIENCE
+- Xceptance Software Technologies GmbH | Jena, Germany (12/2021 – 09/2024)
+  Software Engineer / Junior QA Engineer (Working Student &rarr; Full-Time)
+  • Project Lead on Posters Demo Store: coordinated 190+ tickets, resolved &gt;70% directly.
+  • Built compatibility layer between Postman and XLT load-testing framework.
+  • Developed test automation suites with Selenium WebDriver, Selenide, Neodymium, Playwright, JUnit.
+
+- Final Solutions | Islamabad, Pakistan (03/2021 – 07/2021)
+  Full Stack Web Development Intern (PHP, CodeIgniter 3/4)
+
+- Ingenieure Ohne Grenzen Repair Café | Ilmenau, Germany (10/2021 – Ongoing)
+  Deputy Manager &amp; Volunteer (Electronics troubleshooting, repair culture)
+
+## FLAGSHIP PROJECTS
+1. aicvnow: AI CV tailoring with Gemini API, structured skill audit, Supabase auth, Puppeteer PDF.
+2. AI Hallucinations Quantification: Vector divergence across Qwen, Gemma, Llama with cosine certainty metrics.
+3. WhatsNews: Lightweight Java (Javalin) vector RAG news aggregator &amp; Q&amp;A with API key rotation.
+4. Portal Regression Suite: Selenide/Neodymium Page Object Model suite covering 16 scenarios with Allure.
+5. Autonomous Drone: Arduino Nano + ArduPilot Mega over MAVLink with LiDAR collision avoidance.
+
+## EDUCATION
+- M.Sc. Research in Computer &amp; Systems Engineering, TU Ilmenau (Ongoing)
+- B.E. in Computer Engineering, Bahria University Islamabad (2015 – 2019)
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 3. Project Detail Deep Dive Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="w-full max-w-3xl glass-card rounded-2xl border border-neon-cyan/40 shadow-neon-cyan overflow-hidden flex flex-col max-h-[85vh]">
+            <div class="px-6 py-4 bg-dark-900 border-b border-white/10 flex items-center justify-between">
+                <div>
+                    <h3 id="modal-project-title" class="text-xl font-heading font-bold text-white">Project Title</h3>
+                    <p id="modal-project-subtitle" class="text-xs font-mono text-neon-cyan">Subheading</p>
+                </div>
+                <button id="close-project-modal-btn" class="p-2 text-gray-400 hover:text-white">✕</button>
+            </div>
+            <div id="modal-project-body" class="p-6 overflow-y-auto text-sm text-gray-300 leading-relaxed space-y-4">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quick Terminal Launcher Pill (bottom-right) -->
+    <button id="terminal-fab" class="fixed bottom-6 right-6 z-40 px-3.5 py-2.5 rounded-full bg-dark-850/90 border border-neon-cyan/40 hover:border-neon-cyan text-xs font-mono text-neon-cyan shadow-neon-cyan backdrop-blur-md flex items-center space-x-2 group hover:scale-105 transition-all" title="Open Interactive CLI (Ctrl+K)">
+        <span class="w-2 h-2 rounded-full bg-neon-cyan animate-ping"></span>
+        <span>&gt;_ CLI</span>
+    </button>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 px-4 py-2.5 rounded-xl bg-dark-900 border border-neon-cyan text-xs font-mono text-white shadow-neon-cyan transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+        Toast Message
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- INTERACTIVE SCRIPTS                                            -->
+    <!-- ============================================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabsContainer = document.getElementById('resume-tabs');
-            const tabButtons = tabsContainer.querySelectorAll('.tab-btn');
-            const resumeContents = document.querySelectorAll('.resume-content');
-            let skillsChart = null;
+        // --- 1. Background Particle / Constellation Canvas ---
+        (function initCanvas() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
 
-            const sweSkillsData = {
-                labels: ['Java', 'PHP/CodeIgniter', 'JavaScript', 'HTML/CSS', 'SQL', 'Ninja Framework', 'Bootstrap'],
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [90, 80, 85, 95, 75, 70, 85],
-                    backgroundColor: 'rgba(37, 99, 235, 0.6)',
-                    borderColor: 'rgba(37, 99, 235, 1)',
-                    borderWidth: 1
-                }]
-            };
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
 
-            const qaSkillsData = {
-                labels: ['Selenium', 'Playwright', 'JUnit', 'XLT/XTC', 'WebDriver', 'Java', 'Git'],
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [90, 85, 80, 95, 90, 75, 85],
-                    backgroundColor: 'rgba(22, 163, 74, 0.6)',
-                    borderColor: 'rgba(22, 163, 74, 1)',
-                    borderWidth: 1
-                }]
-            };
-            
-            const chartOptions = {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: 100,
-                        grid: {
-                           color: '#e5e7eb'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            display: false
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return ` ${context.dataset.label}: ${context.raw}%`;
-                            }
-                        }
-                    }
-                }
-            };
-
-            function createChart(canvasId, data) {
-                const ctx = document.getElementById(canvasId).getContext('2d');
-                if (skillsChart) {
-                    skillsChart.destroy();
-                }
-                skillsChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: data,
-                    options: chartOptions
+            const particleCount = Math.min(Math.floor(window.innerWidth / 20), 65);
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    radius: Math.random() * 1.5 + 0.5,
+                    alpha: Math.random() * 0.4 + 0.1
                 });
             }
-            
-            function switchTab(tabName) {
-                tabButtons.forEach(button => {
-                    if (button.dataset.tab === tabName) {
-                        button.classList.add('tab-active');
-                    } else {
-                        button.classList.remove('tab-active');
-                    }
-                });
 
-                resumeContents.forEach(content => {
-                    if (content.id === `${tabName}-content`) {
-                        content.classList.remove('hidden');
-                    } else {
-                        content.classList.add('hidden');
-                    }
-                });
+            let mouse = { x: null, y: null };
+            window.addEventListener('mousemove', e => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
 
-                if (tabName === 'swe') {
-                    createChart('sweSkillsChart', sweSkillsData);
-                } else if (tabName === 'qa') {
-                    createChart('qaSkillsChart', qaSkillsData);
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    let p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+                    if (p.y < 0) p.y = height;
+                    if (p.y > height) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(6, 182, 212, ${p.alpha})`;
+                    ctx.fill();
+
+                    // Connect nearby particles
+                    for (let j = i + 1; j < particles.length; j++) {
+                        let p2 = particles[j];
+                        let dx = p.x - p2.x;
+                        let dy = p.y - p2.y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 110) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - dist / 110)})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+
+                    // Mouse proximity glow
+                    if (mouse.x !== null) {
+                        let mdx = p.x - mouse.x;
+                        let mdy = p.y - mouse.y;
+                        let mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+                        if (mdist < 130) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = `rgba(6, 182, 212, ${0.25 * (1 - mdist / 130)})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.stroke();
+                        }
+                    }
                 }
-            }
 
-            tabsContainer.addEventListener('click', (e) => {
-                if (e.target.matches('.tab-btn')) {
-                    const tabName = e.target.dataset.tab;
-                    switchTab(tabName);
+                requestAnimationFrame(render);
+            }
+            render();
+        })();
+
+        // --- 2. Typewriter Effect for Hero Subtitle ---
+        (function initTypewriter() {
+            const el = document.getElementById('typewriter-text');
+            const phrases = [
+                'AI & LLM Evaluation Researcher',
+                'Full-Stack Java Systems Engineer',
+                'SDET & Automated Testing Specialist',
+                'Embedded & Drone Robotics Tinkerer',
+                'M.Sc. Candidate at TU Ilmenau'
+            ];
+            let phraseIndex = 0;
+            let charIndex = phrases[0].length;
+            let isDeleting = true;
+            let typingSpeed = 100;
+
+            function tick() {
+                const currentPhrase = phrases[phraseIndex];
+
+                if (isDeleting) {
+                    el.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 40;
+                } else {
+                    el.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 90;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typingSpeed = 2200; // Pause at full phrase
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typingSpeed = 500;
+                }
+
+                setTimeout(tick, typingSpeed);
+            }
+            setTimeout(tick, 2000);
+        })();
+
+        // --- 3. Perspective Lens Controller ---
+        const lensDescriptions = {
+            all: 'M.Sc. researcher in Computer & Systems Engineering at <strong class="text-white">TU Ilmenau</strong> with around 3 years of commercial software engineering experience. Specializing in <span class="text-neon-cyan font-medium">LLM hallucination quantification</span>, <span class="text-neon-purple font-medium">vector RAG architectures</span>, <span class="text-neon-emerald font-medium">Java multi-tier enterprise backends</span>, and <span class="text-neon-amber font-medium">mission-critical QA automation</span>.',
+            ai: 'Empirical AI Engineering focus: Quantifying hallucinations across <span class="text-neon-purple font-semibold">Qwen, Gemma, and Llama</span> using cosine certainty and vector representations. Designing production vector RAG workflows with <span class="text-neon-cyan font-semibold">Gemini embeddings, Javalin, and SQLite</span>.',
+            java: 'Full-Stack Java Systems focus: Around 3 years of professional engineering revitalizing enterprise e-commerce platforms (<span class="text-neon-cyan font-semibold">Ninja Framework, JPA ORM, H2/SQL</span>), coordinating 190+ tickets as project lead, and developing high-throughput Javalin micro-services.',
+            qa: 'SDET & Automated Testing focus: Engineering robust Page Object Model automation suites with <span class="text-neon-emerald font-semibold">Selenium, Selenide, Neodymium, JUnit 5, and Playwright</span>. Postman-to-XLT compatibility bridge builder for enterprise load testing.',
+            hardware: 'Embedded Systems & Robotics focus: Computer Engineering graduate with capstone in <span class="text-neon-rose font-semibold">autonomous drone collision avoidance</span> (Arduino Nano + ArduPilot Mega over MAVLink + LiDAR). Active Deputy Manager at Repair Café troubleshooting micro-electronics.'
+        };
+
+        function setPerspectiveLens(lens) {
+            document.querySelectorAll('.lens-tab').forEach(tab => {
+                if (tab.dataset.lens === lens) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
                 }
             });
 
-            // Set initial tab
-            switchTab('swe');
+            // Update narrative
+            const narrativeEl = document.getElementById('hero-narrative');
+            if (narrativeEl && lensDescriptions[lens]) {
+                narrativeEl.innerHTML = lensDescriptions[lens];
+            }
+
+            // Filter projects
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                const cats = card.dataset.category || '';
+                if (lens === 'all' || cats.includes(lens)) {
+                    card.style.display = 'flex';
+                    card.classList.add('animate-fadeIn');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            showToast(`Perspective Lens: ${lens.toUpperCase()} Mode Active`);
+        }
+
+        document.querySelectorAll('.lens-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setPerspectiveLens(btn.dataset.lens);
+            });
         });
+
+        // --- 4. Interactive In-Card Simulator (AI Hallucination Slider) ---
+        const varianceSlider = document.getElementById('variance-slider');
+        const varianceVal = document.getElementById('variance-val');
+        const certaintyVal = document.getElementById('certainty-val');
+
+        if (varianceSlider) {
+            varianceSlider.addEventListener('input', e => {
+                const val = (e.target.value / 100).toFixed(2);
+                varianceVal.textContent = val;
+                // Certainty drops non-linearly as variance increases
+                const certainty = Math.max(0.05, 1 - Math.pow(val, 1.4)).toFixed(2);
+                certaintyVal.textContent = certainty;
+                if (certainty > 0.8) {
+                    certaintyVal.className = 'text-neon-emerald font-bold';
+                } else if (certainty > 0.5) {
+                    certaintyVal.className = 'text-neon-amber font-bold';
+                } else {
+                    certaintyVal.className = 'text-neon-rose font-bold';
+                }
+            });
+        }
+
+        // --- 5. Interactive System Architecture Switcher ---
+        document.querySelectorAll('.arch-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.arch-tab').forEach(t => {
+                    t.classList.remove('bg-neon-purple/20', 'text-neon-purple', 'font-semibold', 'border', 'border-neon-purple/40');
+                    t.classList.add('text-gray-400');
+                });
+                tab.classList.remove('text-gray-400');
+                tab.classList.add('bg-neon-purple/20', 'text-neon-purple', 'font-semibold', 'border', 'border-neon-purple/40');
+
+                const archId = tab.dataset.arch;
+                document.querySelectorAll('.arch-view').forEach(view => {
+                    view.classList.add('hidden');
+                });
+                const targetView = document.getElementById(`arch-view-${archId}`);
+                if (targetView) targetView.classList.remove('hidden');
+            });
+        });
+
+        // --- 6. Technical Skills Matrix Filtering & Search ---
+        const skillSearchInput = document.getElementById('skill-search');
+        const skillPills = document.querySelectorAll('.skill-pill');
+
+        function filterSkills() {
+            const query = (skillSearchInput.value || '').toLowerCase().trim();
+            const activeCatBtn = document.querySelector('.skill-cat-btn.bg-neon-cyan\\/15');
+            const activeCat = activeCatBtn ? activeCatBtn.dataset.cat : 'all';
+
+            skillPills.forEach(pill => {
+                const cat = pill.dataset.cat || '';
+                const name = (pill.dataset.name || '').toLowerCase();
+                const matchesCat = (activeCat === 'all' || cat === activeCat);
+                const matchesQuery = !query || name.includes(query) || pill.textContent.toLowerCase().includes(query);
+
+                if (matchesCat && matchesQuery) {
+                    pill.style.display = 'flex';
+                } else {
+                    pill.style.display = 'none';
+                }
+            });
+        }
+
+        if (skillSearchInput) {
+            skillSearchInput.addEventListener('input', filterSkills);
+        }
+
+        document.querySelectorAll('.skill-cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.skill-cat-btn').forEach(b => {
+                    b.classList.remove('bg-neon-cyan/15', 'text-neon-cyan', 'border-neon-cyan/30', 'font-semibold');
+                    b.classList.add('bg-dark-800', 'text-gray-300');
+                });
+                btn.classList.remove('bg-dark-800', 'text-gray-300');
+                btn.classList.add('bg-neon-cyan/15', 'text-neon-cyan', 'border-neon-cyan/30', 'font-semibold');
+                filterSkills();
+            });
+        });
+
+        // --- 7. Recruiter Hub Profile Switcher ---
+        const recruiterProfiles = {
+            qa: {
+                title: '// TARGET ROLE: QA / TEST AUTOMATION / SDET PROFILE',
+                text: 'QA and test automation engineer with around 3 years of software engineering experience, including automated UI and API testing, load and performance testing, debugging, and release work in Agile projects. Worked with Selenium WebDriver, Playwright, JUnit, Selenide, Neodymium, XLT/XTC, Postman, and Allure, and has experience turning requirements into test cases and maintaining automated test suites. English C1/C2, German B1+.',
+                stack: 'Selenium, Selenide, Neodymium, Playwright, JUnit 5, XLT, Postman, Allure'
+            },
+            ai: {
+                title: '// TARGET ROLE: AI ENGINEERING / LLM RESEARCH PROFILE',
+                text: 'M.Sc. researcher in Computer and Systems Engineering at TU Ilmenau with around 3 years of software engineering experience and current work in LLM evaluation and RAG-based applications. Uses Python, PyTorch, Java, Gemini APIs, embeddings, and vector retrieval for hallucination research, semantic search, summarization, and AI-enabled backend systems. English C1/C2, German B1+.',
+                stack: 'Python, PyTorch, Gemini API, Vector RAG, Cosine Similarity, Embeddings, SQLite'
+            },
+            java: {
+                title: '// TARGET ROLE: JAVA SYSTEMS & BACKEND DEVELOPMENT PROFILE',
+                text: 'Software engineer with around 3 years of experience working mainly with Java backends, web applications, databases, and automated testing. Professional work includes a multi-tier e-commerce application using Java, Ninja Framework, and JPA ORM, while personal projects use Javalin, REST APIs, Maven, SQLite, and external APIs.',
+                stack: 'Java, Ninja Framework, Javalin, Spring Boot, JPA ORM, H2, SQLite, REST, Maven'
+            },
+            web: {
+                title: '// TARGET ROLE: FULL-STACK WEB DEVELOPMENT PROFILE',
+                text: 'Software engineer with experience across backend and frontend web development using Java, PHP, JavaScript, HTML/CSS, CodeIgniter, Javalin, FreeMarker, Bootstrap, and Tailwind CSS. Professional work includes maintaining and modernizing an e-commerce application, while personal projects combine Java or Node.js backends with browser-based interfaces and AI features. English C1/C2, German B1+.',
+                stack: 'Node.js, Express, PHP, CodeIgniter, Tailwind CSS, FreeMarker, Bootstrap, HTML5/ES6'
+            },
+            embedded: {
+                title: '// TARGET ROLE: HARDWARE / ARDUINO / EMBEDDED PROFILE',
+                text: 'Computer Engineering graduate with hands-on hardware and embedded-system project experience, including an autonomous drone project that connected an Arduino Nano with an ArduPilot Mega flight controller and ultrasonic/LiDAR sensing for collision avoidance. Also volunteers at a Repair Café, troubleshooting laptops, PCs, smartphones, and other electronic devices. English C1/C2, German B1+.',
+                stack: 'C++, Arduino Nano, ArduPilot Mega, MAVLink, LiDAR, Ultrasonic, Hardware Diagnostics'
+            }
+        };
+
+        document.querySelectorAll('.cv-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.cv-tab').forEach(t => {
+                    t.classList.remove('bg-neon-purple', 'text-dark-950', 'font-bold');
+                    t.classList.add('bg-dark-800', 'text-gray-300');
+                });
+                tab.classList.remove('bg-dark-800', 'text-gray-300');
+                tab.classList.add('bg-neon-purple', 'text-dark-950', 'font-bold');
+
+                const prof = recruiterProfiles[tab.dataset.profile];
+                if (prof) {
+                    document.getElementById('tailored-title').textContent = prof.title;
+                    document.getElementById('tailored-text').textContent = prof.text;
+                    document.getElementById('tailored-stack').textContent = prof.stack;
+                }
+            });
+        });
+
+        // Copy summary action
+        const copySummaryBtn = document.getElementById('copy-summary-btn');
+        if (copySummaryBtn) {
+            copySummaryBtn.addEventListener('click', () => {
+                const text = document.getElementById('tailored-text').textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('Copied tailored profile summary to clipboard!');
+                });
+            });
+        }
+
+        // --- 8. Modals Management ---
+        const projectModalDetails = {
+            'modal-aicvnow': {
+                title: 'aicvnow (cvezee) | AI CV Optimizer',
+                subtitle: 'Full-Stack GenAI Application • Node.js, Gemini API, Supabase, Puppeteer Core',
+                body: `
+                    <p><strong>Overview:</strong> aicvnow solves the asymmetry in job applications by providing an automated, intelligent analysis engine that extracts requirements from job descriptions and harmonizes them with an authentic master CV.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Key Technical Innovations:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Structured Skill Audit:</strong> Leverages strict JSON schema contracts with Google Gemini to separate skills into three distinct telemetry categories: Matched Skills, Omitted Master Skills, and Missing Requirements.</li>
+                        <li><strong>Anti-Buzzword Humanizer Engine:</strong> Implements negative constraints prohibiting synthetic LLM buzzwords (e.g., "spearheaded", "synergized", "leveraged", "pivotal"), mandating direct, human-authored accomplishment phrasing.</li>
+                        <li><strong>Live Click-to-Edit Sync:</strong> Interactive preview DOM listeners calculate exact line coordinates so clicking any sentence in the rendered CV auto-scrolls the raw markdown editor.</li>
+                        <li><strong>Automated PDF Generation:</strong> Uses Puppeteer Core connected to local browser instances with custom-crafted CSS page stylesheets (Executive Dark, Modern Teal, Minimal Serif).</li>
+                    </ul>
+                    <div class="mt-4 p-3 rounded-lg bg-dark-950 border border-white/5 font-mono text-xs">
+                        <strong>Impact:</strong> Increased application interview callback rates by &gt;200% and reduced manual tailoring time by over 95%.
+                    </div>
+                `
+            },
+            'modal-hallucination': {
+                title: 'AI Hallucination Quantification System',
+                subtitle: 'Academic Research • Technische Universität Ilmenau (2025 – Present)',
+                body: `
+                    <p><strong>Research Scope:</strong> Investigating empirical methods to quantify semantic divergence and hallucination probability across open-weight LLM families, specifically Qwen, Gemma, and Llama architectures.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Methodological Formulation:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Vector Representation Extraction:</strong> Extracts hidden state vectors and sentence embeddings across controlled multi-turn prompt sets.</li>
+                        <li><strong>Prospect Certainty Weighting:</strong> Applies mathematical prospect weighting to cosine similarity matrices to detect subtle distribution shifts that precede factual hallucination.</li>
+                        <li><strong>Model Comparison:</strong> Benchmarks parameter size vs. factual hallucination resistance under domain-specific stress tests.</li>
+                    </ul>
+                    <div class="mt-4 p-3 rounded-lg bg-dark-950 border border-white/5 font-mono text-xs">
+                        <strong>Tech Stack:</strong> Python, PyTorch, Hugging Face Transformers, NumPy, SciPy, Vector Analysis.
+                    </div>
+                `
+            },
+            'modal-whatsnews': {
+                title: 'WhatsNews | Vector RAG News Engine',
+                subtitle: 'Lightweight Java Backend • Javalin, SQLite Vector RAG, Gemini API',
+                body: `
+                    <p><strong>Overview:</strong> WhatsNews is an intelligent news aggregation and semantic Q&A platform engineered with a clean, low-latency Java backend.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Key Engineering Details:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Lightweight Concurrency:</strong> Javalin micro-framework backend running asynchronous background ingestion jobs and SQLite vector indices without heavy container overhead.</li>
+                        <li><strong>Vector RAG Workflow:</strong> News documents are chunked and embedded using Gemini's text embedding APIs, enabling instant semantic search and natural-language synthesis.</li>
+                        <li><strong>Rate-Limit Resilience:</strong> Automated token-bucket rotation of API keys and fallback models to gracefully survive HTTP 429 and 503 limits without user downtime.</li>
+                    </ul>
+                    <div class="mt-4 flex items-center space-x-3">
+                        <a href="https://www.loom.com/share/b05012fd7a3c45c6a8ec7363f8b86ff9" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-neon-blue text-dark-950 font-bold text-xs font-mono">
+                            Watch Full Video Walkthrough on Loom &rarr;
+                        </a>
+                    </div>
+                `
+            },
+            'modal-regression': {
+                title: 'University Portal Automated Regression Test Suite',
+                subtitle: 'TU Ilmenau Research Seminar 2025 • Page Object Model Architecture',
+                body: `
+                    <p><strong>Overview:</strong> Developed an enterprise-grade automated regression test suite for TU Ilmenau's online project registration portal to eliminate repetitive manual validation.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Architecture Highlights:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Page Object Model (POM):</strong> Decoupled UI selectors from test assertions through reusable page component classes.</li>
+                        <li><strong>16 End-to-End Scenarios:</strong> Full lifecycle coverage including login authentication, project registration, file uploads, role verification, and project cancellations.</li>
+                        <li><strong>Telemetry & Reporting:</strong> Integrated Allure framework for automated step screenshots, failure stacks, and execution timelines.</li>
+                    </ul>
+                    <div class="mt-4 p-3 rounded-lg bg-dark-950 border border-white/5 font-mono text-xs">
+                        <strong>Technologies:</strong> Java, Selenide, Neodymium, JUnit 5, Allure, Maven, JSON/YAML data sets.
+                    </div>
+                `
+            },
+            'modal-posters': {
+                title: 'Posters Demo Store Revitalization',
+                subtitle: 'Xceptance Software Technologies GmbH • 190+ Tickets Resolved',
+                body: `
+                    <p><strong>Overview:</strong> Served as Project Lead coordinating development, testing, and multi-tier release lifecycles for an enterprise e-commerce demo application.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Key Responsibilities & Deliverables:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Project Leadership:</strong> Coordinated a 2–3 person team across 190+ Jira issues, authoring and deploying code for over 70% of tickets personally.</li>
+                        <li><strong>Postman-XLT Compatibility Layer:</strong> Engineered a custom Java translation layer enabling Postman collections to execute in Xceptance's XLT high-scale load-testing framework.</li>
+                        <li><strong>Stack Modernization:</strong> Refactored backend and frontend layers using Java, Ninja Framework, JPA ORM, and Bootstrap.</li>
+                    </ul>
+                `
+            },
+            'modal-drone': {
+                title: 'Autonomous Drone Collision-Avoidance System',
+                subtitle: 'Bahria University Capstone Project • Arduino Nano & APM over MAVLink',
+                body: `
+                    <p><strong>Overview:</strong> Engineered a fully functional autonomous aerial vehicle equipped with real-time obstacle detection and automated evasive flight logic.</p>
+                    <h4 class="text-white font-bold mt-4 mb-2">Robotics & Communication Stack:</h4>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li><strong>Sensor Array:</strong> Integrated LiDAR pulsed distance sensors with ultrasonic ranging for multi-directional proximity detection.</li>
+                        <li><strong>MAVLink Bridge:</strong> Connected Arduino Nano microcontroller with an ArduPilot Mega (APM) flight controller via serial MAVLink telemetry protocol.</li>
+                        <li><strong>Evasive Trajectory:</strong> Programmed reactive avoidance algorithms commanding the flight controller to alter attitude and vector away from obstacles.</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Modal triggers
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modalKey = btn.dataset.modal;
+                const data = projectModalDetails[modalKey];
+                if (data) {
+                    document.getElementById('modal-project-title').textContent = data.title;
+                    document.getElementById('modal-project-subtitle').textContent = data.subtitle;
+                    document.getElementById('modal-project-body').innerHTML = data.body;
+                    document.getElementById('project-modal').classList.remove('hidden');
+                    document.getElementById('project-modal').classList.add('flex');
+                }
+            });
+        });
+
+        document.getElementById('close-project-modal-btn').addEventListener('click', () => {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.getElementById('project-modal').classList.remove('flex');
+        });
+
+        // Full CV Modal
+        const cvModal = document.getElementById('cv-modal');
+        document.getElementById('view-markdown-cv-btn').addEventListener('click', () => {
+            cvModal.classList.remove('hidden');
+            cvModal.classList.add('flex');
+        });
+        document.getElementById('close-cv-modal-btn').addEventListener('click', () => {
+            cvModal.classList.add('hidden');
+            cvModal.classList.remove('flex');
+        });
+        document.getElementById('copy-full-cv-btn').addEventListener('click', () => {
+            const cvText = document.getElementById('full-cv-text').textContent;
+            navigator.clipboard.writeText(cvText).then(() => {
+                showToast('Master CV Markdown copied to clipboard!');
+            });
+        });
+
+        // Close on escape
+        window.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('project-modal').classList.add('hidden');
+                document.getElementById('project-modal').classList.remove('flex');
+                cvModal.classList.add('hidden');
+                cvModal.classList.remove('flex');
+                closeTerminal();
+            }
+        });
+
+        // --- 9. Interactive Terminal HUD Controller ---
+        const terminalModal = document.getElementById('terminal-modal');
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+
+        function openTerminal() {
+            terminalModal.classList.remove('hidden');
+            terminalModal.classList.add('flex');
+            terminalInput.focus();
+        }
+
+        function closeTerminal() {
+            terminalModal.classList.add('hidden');
+            terminalModal.classList.remove('flex');
+        }
+
+        document.getElementById('open-terminal-btn').addEventListener('click', openTerminal);
+        document.getElementById('hero-terminal-btn').addEventListener('click', openTerminal);
+        document.getElementById('footer-terminal-btn').addEventListener('click', openTerminal);
+        document.getElementById('terminal-fab').addEventListener('click', openTerminal);
+        document.getElementById('close-terminal-dot').addEventListener('click', closeTerminal);
+
+        // Ctrl+K keyboard shortcut
+        window.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                if (terminalModal.classList.contains('hidden')) {
+                    openTerminal();
+                } else {
+                    closeTerminal();
+                }
+            }
+        });
+
+        function printTerminal(html) {
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            terminalOutput.appendChild(div);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        const terminalCommands = {
+            help: () => `
+                <div class="text-neon-cyan font-bold">AVAILABLE COMMANDS:</div>
+                <div class="grid grid-cols-2 gap-2 text-xs text-gray-300 mt-1">
+                    <div><span class="text-neon-emerald font-bold">whoami</span> : Bio and core credentials</div>
+                    <div><span class="text-neon-emerald font-bold">projects</span> : List flagship systems</div>
+                    <div><span class="text-neon-emerald font-bold">skills</span> : Technical capabilities</div>
+                    <div><span class="text-neon-emerald font-bold">lens [role]</span> : Switch lens (ai, java, qa, hw)</div>
+                    <div><span class="text-neon-emerald font-bold">eval</span> : Run LLM hallucination benchmark</div>
+                    <div><span class="text-neon-emerald font-bold">cv [role]</span> : View tailored CV profile</div>
+                    <div><span class="text-neon-emerald font-bold">hobbies</span> : Personal passions &amp; Repair Café</div>
+                    <div><span class="text-neon-emerald font-bold">contact</span> : Email, phone, and profiles</div>
+                    <div><span class="text-neon-emerald font-bold">matrix</span> : Digital rain easter egg</div>
+                    <div><span class="text-neon-emerald font-bold">clear</span> : Clear screen</div>
+                </div>
+            `,
+            whoami: () => `
+                <div class="text-white leading-relaxed">
+                    <strong>Muhammad Sarosh Ali</strong><br>
+                    • M.Sc. Researcher in Computer &amp; Systems Engineering at TU Ilmenau (Ongoing)<br>
+                    • B.E. in Computer Engineering from Bahria University (2015 – 2019)<br>
+                    • ~3 Years Commercial Engineering Experience (Xceptance GmbH, Final Solutions)<br>
+                    • Languages: English (C1/C2 Fluent), German (B1+), Urdu/Hindi (Native), Punjabi (Native)<br>
+                    • Location: Ilmenau, Germany
+                </div>
+            `,
+            projects: () => `
+                <div class="text-white space-y-1">
+                    <div>1. <span class="text-neon-cyan font-bold">aicvnow</span> : AI CV tailoring &amp; skill audit (Gemini, Node.js, Puppeteer)</div>
+                    <div>2. <span class="text-neon-purple font-bold">AI Hallucination Engine</span> : Vector divergence across Qwen/Gemma/Llama</div>
+                    <div>3. <span class="text-neon-blue font-bold">WhatsNews</span> : Java (Javalin) vector RAG news aggregator with key rotation</div>
+                    <div>4. <span class="text-neon-emerald font-bold">Portal Regression Suite</span> : TU Ilmenau automated QA (Selenide, Allure)</div>
+                    <div>5. <span class="text-neon-amber font-bold">Posters Demo Store</span> : 190+ tickets, Java/Ninja modernization, Postman bridge</div>
+                    <div>6. <span class="text-neon-rose font-bold">Autonomous Drone</span> : Arduino Nano + APM over MAVLink + LiDAR</div>
+                </div>
+            `,
+            skills: () => `
+                <div class="text-white leading-relaxed">
+                    • <strong>Languages:</strong> Java, Python, JavaScript, TypeScript, PHP, SQL, C++, Bash<br>
+                    • <strong>AI/ML:</strong> PyTorch, LLM Eval, Vector RAG, Gemini API, Cosine Similarity, Embeddings<br>
+                    • <strong>Java/Backend:</strong> Javalin, Ninja, Spring Boot, JPA ORM, Hibernate, JDBC, REST, gRPC<br>
+                    • <strong>QA/SDET:</strong> Selenium, Selenide, Neodymium, Playwright, JUnit 5, XLT/XTC, Allure<br>
+                    • <strong>Hardware:</strong> Arduino, ArduPilot Mega, MAVLink, LiDAR, Soldering, Electronics Triage
+                </div>
+            `,
+            eval: () => `
+                <div class="text-neon-purple font-mono">
+                    [SIMULATION] Initializing Prospect Certainty Hallucination Scan...<br>
+                    &gt; Target Models: Qwen-2.5-7B, Gemma-2-9B, Llama-3.1-8B<br>
+                    &gt; Vector Embedding Extraction: text-embedding-004 (768 dimensions)<br>
+                    &gt; Calculating Cosine Similarity Matrix... [OK]<br>
+                    &gt; Applying Structural Mathematical Weighting... [OK]<br>
+                    <span class="text-neon-emerald font-bold">&gt; Result: Contextual Certainty Index: 0.942 (Factual Cohesion High)</span>
+                </div>
+            `,
+            hobbies: () => `
+                <div class="text-white leading-relaxed">
+                    • <strong>Photography:</strong> Fujifilm enthusiast, street geometry, rule of thirds.<br>
+                    • <strong>Repair Café:</strong> Deputy Manager volunteering with Ingenieure Ohne Grenzen Ilmenau.<br>
+                    • <strong>Ancient History:</strong> Sumer, Spartan politics, Roman civilization, Japan 1026 AD.<br>
+                    • <strong>Writing:</strong> Essays, technical thoughts, and reflective poetry.<br>
+                    • <strong>Gaming &amp; Strategy:</strong> Chess endgames and tactical RPGs.
+                </div>
+            `,
+            contact: () => `
+                <div class="text-white leading-relaxed">
+                    • <strong>Email:</strong> <a href="mailto:muhammadsaroshali@gmail.com" class="text-neon-cyan underline">muhammadsaroshali@gmail.com</a><br>
+                    • <strong>Phone:</strong> +49 15213431198<br>
+                    • <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/muhammad-sarosh-ali-8b49191b9/" target="_blank" class="text-neon-cyan underline">linkedin.com/in/muhammad-sarosh-ali</a><br>
+                    • <strong>GitHub:</strong> <a href="https://github.com/msaroshali" target="_blank" class="text-neon-cyan underline">github.com/msaroshali</a><br>
+                    • <strong>Location:</strong> Ilmenau, Germany
+                </div>
+            `,
+            matrix: () => {
+                let count = 0;
+                const interval = setInterval(() => {
+                    const line = Array.from({length: 40}, () => String.fromCharCode(33 + Math.floor(Math.random() * 90))).join(' ');
+                    printTerminal(`<div class="text-neon-emerald text-[11px] font-mono opacity-80">${line}</div>`);
+                    count++;
+                    if (count > 8) clearInterval(interval);
+                }, 100);
+                return `<div class="text-neon-emerald font-bold">Entering Digital Matrix...</div>`;
+            },
+            clear: () => {
+                terminalOutput.innerHTML = '';
+                return '';
+            }
+        };
+
+        terminalInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                const cmdLine = terminalInput.value.trim();
+                terminalInput.value = '';
+                if (!cmdLine) return;
+
+                printTerminal(`<div class="text-gray-400">&gt; <span class="text-white font-bold">${cmdLine}</span></div>`);
+                const parts = cmdLine.split(' ');
+                const baseCmd = parts[0].toLowerCase();
+                const arg = parts[1] ? parts[1].toLowerCase() : '';
+
+                if (baseCmd === 'lens') {
+                    if (['all', 'ai', 'java', 'qa', 'hardware', 'embedded'].includes(arg)) {
+                        const target = arg === 'embedded' ? 'hardware' : arg;
+                        setPerspectiveLens(target);
+                        printTerminal(`<div class="text-neon-cyan font-bold">Perspective Lens switched to: ${target.toUpperCase()}</div>`);
+                    } else {
+                        printTerminal(`<div class="text-rose-400">Usage: lens [all | ai | java | qa | hardware]</div>`);
+                    }
+                } else if (baseCmd === 'cv') {
+                    const profKey = arg && recruiterProfiles[arg] ? arg : 'qa';
+                    const prof = recruiterProfiles[profKey];
+                    printTerminal(`
+                        <div class="text-neon-purple font-bold">${prof.title}</div>
+                        <div class="text-gray-300 mt-1">${prof.text}</div>
+                        <div class="text-neon-cyan text-xs mt-1">Stack: ${prof.stack}</div>
+                    `);
+                } else if (terminalCommands[baseCmd]) {
+                    const res = terminalCommands[baseCmd]();
+                    if (res) printTerminal(res);
+                } else {
+                    printTerminal(`<div class="text-rose-400">Command not recognized: '${baseCmd}'. Type <span class="text-neon-cyan font-bold">help</span> for command list.</div>`);
+                }
+            }
+        });
+
+        // --- 10. Live Timezone Clock (Ilmenau, Germany) ---
+        function updateClock() {
+            const el = document.getElementById('local-time');
+            if (el) {
+                const now = new Date();
+                const options = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+                el.textContent = `${now.toLocaleTimeString('en-GB', options)} CET (Ilmenau, DE)`;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // --- 11. Clipboard Action Helpers ---
+        document.querySelectorAll('.copy-email-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const email = btn.dataset.email;
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast('Email address copied to clipboard!');
+                });
+            });
+        });
+
+        // Toast feedback notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
     </script>
 </body>
 </html>
