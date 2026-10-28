@@ -1,0 +1,288 @@
+/* ============================================================== */
+/* MUHAMMAD SAROSH ALI - PORTFOLIO STYLESHEET                     */
+/* ============================================================== */
+
+/* Base resets & typography */
+body {
+    background-color: #070a13;
+    color: #e2e8f0;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: rgba(6, 182, 212, 0.3);
+    color: #67e8f9;
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(6, 182, 212, 0.35);
+    box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+    transform: translateY(-2px);
+}
+
+.glass-nav {
+    background: rgba(7, 10, 19, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #070a13;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Terminal Matrix / HUD text */
+.terminal-glow {
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}
+
+/* Canvas background behind content */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Lens Active Indicators */
+.lens-tab.active {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: #06b6d4;
+    color: #67e8f9;
+    box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.4);
+}
+
+/* ============================================================== */
+/* E-INK EYE-SOOTHING PAPER THEME                                 */
+/* ============================================================== */
+html.e-ink {
+    color-scheme: light;
+}
+
+html.e-ink body {
+    background-color: #f4f1ea !important;
+    color: #1a1a1a !important;
+    text-shadow: none !important;
+}
+
+/* Authentic E-Ink Capsule Refresh Pulse */
+@keyframes einkPulse {
+    0% { filter: invert(0); }
+    35% { filter: invert(0.85) contrast(140%); }
+    65% { filter: invert(0.85) contrast(140%); }
+    100% { filter: invert(0); }
+}
+
+.e-ink-pulse {
+    animation: einkPulse 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Cards & Panels: warm unbleached paper */
+html.e-ink .glass-card {
+    background: #faf8f4 !important;
+    border: 1px solid #d4cdc0 !important;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+html.e-ink .glass-card:hover {
+    border-color: #1a1a1a !important;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+html.e-ink .glass-nav {
+    background: rgba(244, 241, 234, 0.96) !important;
+    border-bottom: 1px solid #d4cdc0 !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Headings and dark ink typography */
+html.e-ink .text-white {
+    color: #111214 !important;
+}
+
+html.e-ink .text-gray-200 {
+    color: #1e2024 !important;
+}
+
+html.e-ink .text-gray-300 {
+    color: #2e3035 !important;
+}
+
+html.e-ink .text-gray-400 {
+    color: #4e5159 !important;
+}
+
+html.e-ink .text-gray-500 {
+    color: #6a6d75 !important;
+}
+
+/* Remove colored gradients & neon text in e-ink */
+html.e-ink .bg-gradient-to-r,
+html.e-ink .text-transparent {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: #111214 !important;
+}
+
+html.e-ink .shadow-neon-cyan,
+html.e-ink .shadow-neon-purple,
+html.e-ink .shadow-neon-emerald,
+html.e-ink .shadow-glass {
+    box-shadow: none !important;
+}
+
+html.e-ink .animate-pulse-glow,
+html.e-ink .blur-3xl {
+    display: none !important;
+}
+
+/* Convert neon text accents to deep crisp ink */
+html.e-ink .text-neon-cyan,
+html.e-ink .text-neon-purple,
+html.e-ink .text-neon-blue,
+html.e-ink .text-neon-emerald,
+html.e-ink .text-neon-amber,
+html.e-ink .text-neon-rose {
+    color: #18191b !important;
+    font-weight: 600;
+}
+
+/* Neutralize dark container backgrounds to warm paper */
+html.e-ink [class*="bg-dark-"] {
+    background-color: #ece7dc !important;
+    color: #18191b !important;
+}
+
+html.e-ink .border-white\/10,
+html.e-ink .border-white\/5 {
+    border-color: #d4cdc0 !important;
+}
+
+/* Badge styling in e-ink */
+html.e-ink [class*="bg-neon-"] {
+    background-color: #e4ddd0 !important;
+    border-color: #c8c0b0 !important;
+    color: #18191b !important;
+}
+
+/* Primary Action Buttons: rich matte carbon block */
+html.e-ink a.bg-gradient-to-r,
+html.e-ink button.bg-gradient-to-r,
+html.e-ink .cv-tab.bg-neon-purple {
+    background: #18191b !important;
+    color: #f4f1ea !important;
+    border: 1px solid #18191b !important;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.e-ink a.bg-gradient-to-r:hover,
+html.e-ink button.bg-gradient-to-r:hover {
+    background: #2f3035 !important;
+    color: #ffffff !important;
+}
+
+/* Lens tabs active in e-ink */
+html.e-ink .lens-tab.active {
+    background: #18191b !important;
+    color: #f4f1ea !important;
+    border-color: #18191b !important;
+    box-shadow: none !important;
+}
+
+html.e-ink .skill-cat-btn.bg-neon-cyan\/15 {
+    background: #18191b !important;
+    color: #f4f1ea !important;
+    border-color: #18191b !important;
+}
+
+/* Sliders */
+html.e-ink input[type="range"] {
+    background: #d4cdc0 !important;
+    accent-color: #18191b !important;
+}
+
+/* Modals & Terminal in E-ink */
+html.e-ink #terminal-modal .glass-card,
+html.e-ink #cv-modal .glass-card,
+html.e-ink #project-modal .glass-card {
+    background: #f7f4ec !important;
+    border: 2px solid #18191b !important;
+    box-shadow: 6px 6px 0px rgba(24, 25, 27, 0.25) !important;
+}
+
+html.e-ink #terminal-output,
+html.e-ink #full-cv-text,
+html.e-ink #modal-project-body {
+    background: #fdfbf7 !important;
+    color: #18191b !important;
+}
+
+html.e-ink #terminal-input {
+    color: #18191b !important;
+}
+
+html.e-ink #terminal-fab {
+    background: #18191b !important;
+    color: #f4f1ea !important;
+    border-color: #18191b !important;
+}
+
+html.e-ink #toast {
+    background: #18191b !important;
+    color: #f4f1ea !important;
+    border: 1px solid #18191b !important;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.2) !important;
+}
+
+/* Print styles for Recruiter Print / PDF Export */
+@media print {
+    body {
+        background: white !important;
+        color: #0f172a !important;
+    }
+    #particle-canvas, nav, #lens-bar, #terminal-modal, #terminal-fab, footer, .no-print {
+        display: none !important;
+    }
+    .glass-card {
+        background: white !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+    }
+    .text-gray-400, .text-gray-300 {
+        color: #475569 !important;
+    }
+    .text-white {
+        color: #0f172a !important;
+    }
+}
