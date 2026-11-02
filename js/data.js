@@ -5,7 +5,7 @@
 // --- Perspective Lens Narrative Text ---
 const lensDescriptions = {
     all: 'M.Sc. researcher in Computer &amp; Systems Engineering at <strong class="text-white">TU Ilmenau</strong> with around 3 years of commercial software engineering experience. Specializing in <span class="text-neon-cyan font-medium">LLM hallucination quantification</span>, <span class="text-neon-purple font-medium">vector RAG architectures</span>, <span class="text-neon-emerald font-medium">Java multi-tier enterprise backends</span>, and <span class="text-neon-amber font-medium">mission-critical QA automation</span>.',
-    ai: 'Empirical AI Engineering focus: Quantifying hallucinations across <span class="text-neon-purple font-semibold">Qwen, Gemma, and Llama</span> using cosine certainty and vector representations. Designing production vector RAG workflows with <span class="text-neon-cyan font-semibold">Gemini embeddings, Javalin, and SQLite</span>.',
+    ai: 'Empirical AI Engineering focus: Quantifying hallucinations across <span class="text-neon-purple font-semibold">Qwen, Gemma, Llama and more</span> using cosine certainty and vector representations. Designing production vector RAG workflows with <span class="text-neon-cyan font-semibold"> embeddings, Javalin, and SQLite</span>.',
     java: 'Full-Stack Java Systems focus: Around 3 years of professional engineering revitalizing enterprise e-commerce platforms (<span class="text-neon-cyan font-semibold">Ninja Framework, JPA ORM, H2/SQL</span>), coordinating 190+ tickets as project lead, and developing high-throughput Javalin micro-services.',
     qa: 'SDET &amp; Automated Testing focus: Engineering robust Page Object Model automation suites with <span class="text-neon-emerald font-semibold">Selenium, Selenide, Neodymium, JUnit 5, and Playwright</span>. Postman-to-XLT compatibility bridge builder for enterprise load testing.',
     hardware: 'Embedded Systems &amp; Robotics focus: Computer Engineering graduate with capstone in <span class="text-neon-rose font-semibold">autonomous drone collision avoidance</span> (Arduino Nano + ArduPilot Mega over MAVLink + LiDAR). Active Deputy Manager at Repair Café troubleshooting micro-electronics.'
@@ -20,8 +20,8 @@ const recruiterProfiles = {
     },
     ai: {
         title: '// TARGET ROLE: AI ENGINEERING / LLM RESEARCH PROFILE',
-        text: 'M.Sc. researcher in Computer and Systems Engineering at TU Ilmenau with around 3 years of software engineering experience and current work in LLM evaluation and RAG-based applications. Uses Python, PyTorch, Java, Gemini APIs, embeddings, and vector retrieval for hallucination research, semantic search, summarization, and AI-enabled backend systems. English C1/C2, German B1+.',
-        stack: 'Python, PyTorch, Gemini API, Vector RAG, Cosine Similarity, Embeddings, SQLite'
+        text: 'M.Sc. researcher in Computer and Systems Engineering at TU Ilmenau with  software and research oriented AI engineering experience and current work in LLM evaluation and RAG-based applications. Uses Python, PyTorch, Java, Open Weight LLMs, APIs, Local LLMs, Cloud-based LLMs, various embedding quantification techniques, vector databases, vector retrieval, hallucination research, semantic search, and AI-enabled backend systems. English C1/C2, German B1+.',
+        stack: 'Python, PyTorch, Java, Locally Deployed LLMs, HPC Cluster, API, Vector RAG, Cosine Similarity, Embeddings, SQLite'
     },
     java: {
         title: '// TARGET ROLE: JAVA SYSTEMS & BACKEND DEVELOPMENT PROFILE',
@@ -178,7 +178,7 @@ const terminalCommands = {
     skills: () => `
         <div class="text-white leading-relaxed">
             • <strong>Languages:</strong> Java, Python, JavaScript, TypeScript, PHP, SQL, C++, Bash<br>
-            • <strong>AI/ML:</strong> PyTorch, LLM Eval, Vector RAG, Gemini API, Cosine Similarity, Embeddings<br>
+            • <strong>AI/ML:</strong> PyTorch, LLM Eval, Vector RAG, Gemini API, Vector Similarity Quantification, Embeddings, Structural Mathematical Weighting <br>
             • <strong>Java/Backend:</strong> Javalin, Ninja, Spring Boot, JPA ORM, Hibernate, JDBC, REST, gRPC<br>
             • <strong>QA/SDET:</strong> Selenium, Selenide, Neodymium, Playwright, JUnit 5, XLT/XTC, Allure<br>
             • <strong>Hardware:</strong> Arduino, ArduPilot Mega, MAVLink, LiDAR, Soldering, Electronics Triage
@@ -215,7 +215,7 @@ const terminalCommands = {
     matrix: () => {
         let count = 0;
         const interval = setInterval(() => {
-            const line = Array.from({length: 40}, () => String.fromCharCode(33 + Math.floor(Math.random() * 90))).join(' ');
+            const line = Array.from({ length: 40 }, () => String.fromCharCode(33 + Math.floor(Math.random() * 90))).join(' ');
             printTerminal(`<div class="text-neon-emerald text-[11px] font-mono opacity-80">${line}</div>`);
             count++;
             if (count > 8) clearInterval(interval);
